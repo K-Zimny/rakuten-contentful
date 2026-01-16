@@ -17,7 +17,7 @@ export const ArticleQuote = ({ quote }: ArticleQuoteProps) => {
 
   return (
     <blockquote className="my-8 border-l-4 border-blue-500 pl-4 italic" {...inspectorProps({ fieldId: 'text' })}>
-      <p className="text-lg">{updatedQuote.text}</p>
+      <p className="text-lg text-center">{updatedQuote.text}</p>
       {updatedQuote.author && (
         <footer className="mt-2 text-sm text-gray-600" {...inspectorProps({ fieldId: 'author' })}>
           — {updatedQuote.author}
