@@ -1,0 +1,8 @@
+fragment RichQuoteFields on ComponentQuote {
+  __typename
+  sys {
+    id
+  }
+  text
+  author
+}

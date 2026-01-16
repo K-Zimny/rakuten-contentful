@@ -1,10 +1,10 @@
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, Document } from '@contentful/rich-text-types';
 
-import { ArticleImage } from '@src/components/features/article';
-import { ComponentRichImage } from '@src/lib/__generated/sdk';
+import { ArticleImage, ArticleQuote } from '@src/components/features/article';
+import { ComponentQuote, ComponentRichImage } from '@src/lib/__generated/sdk';
 
-export type EmbeddedEntryType = ComponentRichImage | null;
+export type EmbeddedEntryType = ComponentRichImage | ComponentQuote | null;
 
 export interface ContentfulRichTextInterface {
   json: Document;
@@ -21,6 +21,8 @@ export const EmbeddedEntry = (entry: EmbeddedEntryType) => {
   switch (entry?.__typename) {
     case 'ComponentRichImage':
       return <ArticleImage image={entry} />;
+    case 'ComponentQuote':
+      return <ArticleQuote quote={entry} />;
     default:
       return null;
   }
