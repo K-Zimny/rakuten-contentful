@@ -44,7 +44,7 @@ export const ArticleTile = ({ article, className }: ArticleTileProps) => {
             </p>
           )}
 
-          <div className="mt-auto flex items-center">
+          {/* <div className="mt-auto flex items-center">
             <ArticleAuthor article={article} />
             <div
               className={twMerge('ml-auto pl-2 text-xs text-gray600')}
@@ -52,7 +52,7 @@ export const ArticleTile = ({ article, className }: ArticleTileProps) => {
             >
               <FormatDate date={publishedDate} />
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </Link>

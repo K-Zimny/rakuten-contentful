@@ -58,7 +58,7 @@ export const ArticleHero = ({
               {t('article.featured')}
             </ArticleLabel>
           )}
-          <div
+          {/* <div
             className={twMerge(
               'ml-auto hidden pl-2 text-xs text-gray600',
               isReversedLayout ? 'lg:block' : '',
@@ -66,7 +66,7 @@ export const ArticleHero = ({
             {...inspectorProps({ fieldId: 'publishedDate' })}
           >
             <FormatDate date={publishedDate} />
-          </div>
+          </div> */}
         </div>
         <h1 {...inspectorProps({ fieldId: 'title' })}>{title}</h1>
         {shortDescription && (
@@ -74,12 +74,12 @@ export const ArticleHero = ({
             {shortDescription}
           </p>
         )}
-        <div
+        {/* <div
           className={twMerge('mt-2 text-xs text-gray600', isReversedLayout ? 'lg:hidden' : '')}
           {...inspectorProps({ fieldId: 'publishedDate' })}
         >
           <FormatDate date={publishedDate} />
-        </div>
+        </div> */}
       </div>
     </div>
   );
