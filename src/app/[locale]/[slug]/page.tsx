@@ -11,6 +11,11 @@ import { client, previewClient } from '@src/lib/client';
 export async function generateMetadata({
   params: { locale, slug },
 }: BlogPageProps): Promise<Metadata> {
+  // Validate locale to prevent static file requests from being treated as locales
+  if (!locales.includes(locale)) {
+    return {};
+  }
+
   const { isEnabled: preview } = draftMode();
   const gqlClient = preview ? previewClient : client;
 
@@ -69,6 +74,11 @@ interface BlogPageProps {
 }
 
 export default async function Page({ params: { locale, slug } }: BlogPageProps) {
+  // Validate locale to prevent static file requests from being treated as locales
+  if (!locales.includes(locale)) {
+    notFound();
+  }
+
   const { isEnabled: preview } = draftMode();
   const gqlClient = preview ? previewClient : client;
   const { t } = await initTranslations({ locale });

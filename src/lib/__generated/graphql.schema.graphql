@@ -899,7 +899,6 @@ type PageLanding implements Entry & _Node {
   _id: ID!
   contentfulMetadata: ContentfulMetadata!
   featuredBlogPost(locale: String, preview: Boolean, useFallbackLocale: Boolean, where: PageBlogPostFilter): PageBlogPost
-  helloWork(locale: String, useFallbackLocale: Boolean): String
   internalName(locale: String, useFallbackLocale: Boolean): String
   linkedFrom(allowedLocales: [String]): PageLandingLinkingCollections
   seoFields(locale: String, preview: Boolean, useFallbackLocale: Boolean, where: ComponentSeoFilter): ComponentSeo
@@ -919,13 +918,6 @@ input PageLandingFilter {
   contentfulMetadata: ContentfulMetadataFilter
   featuredBlogPost: cfPageBlogPostNestedFilter
   featuredBlogPost_exists: Boolean
-  helloWork: String
-  helloWork_contains: String
-  helloWork_exists: Boolean
-  helloWork_in: [String]
-  helloWork_not: String
-  helloWork_not_contains: String
-  helloWork_not_in: [String]
   internalName: String
   internalName_contains: String
   internalName_exists: Boolean

@@ -43,18 +43,13 @@ export default async function PageLayout({ children, params }: LayoutProps) {
 
   return (
     <html lang={locale} dir={dir(locale)}>
-      <head>
-        <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5" />
-      </head>
-
       <body>
         <TranslationsProvider locale={locale} resources={resources}>
           <ContentfulPreviewProvider
             locale={locale}
             enableInspectorMode={preview}
             enableLiveUpdates={preview}
-            targetOrigin={allowedOriginList}
-          >
+            targetOrigin={allowedOriginList}>
             <main className={`${urbanist.variable} font-sans`}>
               <Header />
               {children}

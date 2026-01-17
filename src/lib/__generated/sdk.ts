@@ -1302,7 +1302,6 @@ export type PageLanding = Entry & _Node & {
   _id: Scalars['ID']['output'];
   contentfulMetadata: ContentfulMetadata;
   featuredBlogPost?: Maybe<PageBlogPost>;
-  helloWork?: Maybe<Scalars['String']['output']>;
   internalName?: Maybe<Scalars['String']['output']>;
   linkedFrom?: Maybe<PageLandingLinkingCollections>;
   seoFields?: Maybe<ComponentSeo>;
@@ -1316,13 +1315,6 @@ export type PageLandingFeaturedBlogPostArgs = {
   preview?: InputMaybe<Scalars['Boolean']['input']>;
   useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
   where?: InputMaybe<PageBlogPostFilter>;
-};
-
-
-/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/pageLanding) */
-export type PageLandingHelloWorkArgs = {
-  locale?: InputMaybe<Scalars['String']['input']>;
-  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 
@@ -1361,13 +1353,6 @@ export type PageLandingFilter = {
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
   featuredBlogPost?: InputMaybe<CfPageBlogPostNestedFilter>;
   featuredBlogPost_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  helloWork?: InputMaybe<Scalars['String']['input']>;
-  helloWork_contains?: InputMaybe<Scalars['String']['input']>;
-  helloWork_exists?: InputMaybe<Scalars['Boolean']['input']>;
-  helloWork_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
-  helloWork_not?: InputMaybe<Scalars['String']['input']>;
-  helloWork_not_contains?: InputMaybe<Scalars['String']['input']>;
-  helloWork_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   internalName?: InputMaybe<Scalars['String']['input']>;
   internalName_contains?: InputMaybe<Scalars['String']['input']>;
   internalName_exists?: InputMaybe<Scalars['Boolean']['input']>;

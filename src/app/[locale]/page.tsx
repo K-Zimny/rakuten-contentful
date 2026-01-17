@@ -18,6 +18,11 @@ interface LandingPageProps {
 }
 
 export async function generateMetadata({ params }: LandingPageProps): Promise<Metadata> {
+  // Validate locale to prevent static file requests from being treated as locales
+  if (!locales.includes(params.locale)) {
+    return {};
+  }
+
   const { isEnabled: preview } = draftMode();
   const gqlClient = preview ? previewClient : client;
   const landingPageData = await gqlClient.pageLanding({ locale: params.locale, preview });
@@ -45,6 +50,11 @@ export async function generateMetadata({ params }: LandingPageProps): Promise<Me
 }
 
 export default async function Page({ params: { locale } }: LandingPageProps) {
+  // Validate locale to prevent static file requests from being treated as locales
+  if (!locales.includes(locale)) {
+    notFound();
+  }
+
   const { isEnabled: preview } = draftMode();
   const { t, resources } = await initTranslations({ locale });
   const gqlClient = preview ? previewClient : client;
@@ -59,13 +69,34 @@ export default async function Page({ params: { locale } }: LandingPageProps) {
   const blogPostsData = await gqlClient.pageBlogPostCollection({
     limit: 100,
     locale,
-    order: PageBlogPostOrder.PublishedDateDesc,
+    // Remove order parameter to fetch all posts, then sort in code
     where: {
       slug_not: page?.featuredBlogPost?.slug,
     },
     preview,
   });
-  const posts = blogPostsData.pageBlogPostCollection?.items;
+
+  // Custom order based on specific titles
+
+  const posts = blogPostsData.pageBlogPostCollection?.items
+    ?.filter((post): post is NonNullable<typeof post> => Boolean(post))
+    .sort((a, b) => {
+      const customOrder = [
+        'Why Rakuten Advertising?',
+        'Past Projects',
+        'Teamwork',
+        'Web Management',
+        'Design to Code',
+        'Design Systems & Component Libraries',
+        'Additional Information',
+      ]; // Your custom order
+      const indexA = customOrder.indexOf(a.title || '');
+      const indexB = customOrder.indexOf(b.title || '');
+      if (indexA === -1 && indexB === -1) return 0;
+      if (indexA === -1) return 1;
+      if (indexB === -1) return -1;
+      return indexA - indexB;
+    });
 
   if (!page?.featuredBlogPost || !posts) {
     return;
@@ -86,7 +117,7 @@ export default async function Page({ params: { locale } }: LandingPageProps) {
       {/*</Container>*/}
 
       <Container className="my-8 md:mb-10 lg:mb-16">
-        <h2 className="mb-4 md:mb-6">{t('landingPage.latestArticles')}</h2>
+        <h2 className="mb-4 text-center md:mb-6">{t('landingPage.latestArticles')}</h2>
         <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" articles={posts} />
       </Container>
     </TranslationsProvider>
