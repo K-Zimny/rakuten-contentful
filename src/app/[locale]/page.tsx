@@ -57,7 +57,7 @@ export default async function Page({ params: { locale } }: LandingPageProps) {
   }
 
   const blogPostsData = await gqlClient.pageBlogPostCollection({
-    limit: 6,
+    limit: 100,
     locale,
     order: PageBlogPostOrder.PublishedDateDesc,
     where: {
@@ -85,7 +85,7 @@ export default async function Page({ params: { locale } }: LandingPageProps) {
       {/*  <div className="my-5 bg-colorTextLightest p-5 text-colorBlueLightest">{page.greeting}</div>*/}
       {/*</Container>*/}
 
-      <Container className="my-8  md:mb-10 lg:mb-16">
+      <Container className="my-8 md:mb-10 lg:mb-16">
         <h2 className="mb-4 md:mb-6">{t('landingPage.latestArticles')}</h2>
         <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" articles={posts} />
       </Container>
