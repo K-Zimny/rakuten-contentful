@@ -43,6 +43,7 @@ fragment PageBlogPostFields on PageBlogPost {
         block {
           ...RichImageFields
           ...RichQuoteFields
+          ...RichProjectFields
         }
       }
     }

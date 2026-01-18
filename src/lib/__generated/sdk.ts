@@ -1392,6 +1392,195 @@ export enum PageLandingOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
+export type ProjectCaseStudy = Entry & _Node & {
+  __typename?: 'ProjectCaseStudy';
+  _id: Scalars['ID']['output'];
+  client?: Maybe<Scalars['String']['output']>;
+  contentfulMetadata: ContentfulMetadata;
+  description?: Maybe<ProjectCaseStudyDescription>;
+  linkedFrom?: Maybe<ProjectCaseStudyLinkingCollections>;
+  skillsUsed?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  sys: Sys;
+  technologiesUsed?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  title?: Maybe<Scalars['String']['output']>;
+  url?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
+export type ProjectCaseStudyClientArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
+export type ProjectCaseStudyDescriptionArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
+export type ProjectCaseStudyLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
+export type ProjectCaseStudySkillsUsedArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
+export type ProjectCaseStudyTechnologiesUsedArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
+export type ProjectCaseStudyTitleArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
+export type ProjectCaseStudyUrlArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ProjectCaseStudyCollection = {
+  __typename?: 'ProjectCaseStudyCollection';
+  items: Array<Maybe<ProjectCaseStudy>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type ProjectCaseStudyDescription = {
+  __typename?: 'ProjectCaseStudyDescription';
+  json: Scalars['JSON']['output'];
+  links: ProjectCaseStudyDescriptionLinks;
+};
+
+export type ProjectCaseStudyDescriptionAssets = {
+  __typename?: 'ProjectCaseStudyDescriptionAssets';
+  block: Array<Maybe<Asset>>;
+  hyperlink: Array<Maybe<Asset>>;
+};
+
+export type ProjectCaseStudyDescriptionEntries = {
+  __typename?: 'ProjectCaseStudyDescriptionEntries';
+  block: Array<Maybe<Entry>>;
+  hyperlink: Array<Maybe<Entry>>;
+  inline: Array<Maybe<Entry>>;
+};
+
+export type ProjectCaseStudyDescriptionLinks = {
+  __typename?: 'ProjectCaseStudyDescriptionLinks';
+  assets: ProjectCaseStudyDescriptionAssets;
+  entries: ProjectCaseStudyDescriptionEntries;
+  resources: ProjectCaseStudyDescriptionResources;
+};
+
+export type ProjectCaseStudyDescriptionResources = {
+  __typename?: 'ProjectCaseStudyDescriptionResources';
+  block: Array<ProjectCaseStudyDescriptionResourcesBlock>;
+  hyperlink: Array<ProjectCaseStudyDescriptionResourcesHyperlink>;
+  inline: Array<ProjectCaseStudyDescriptionResourcesInline>;
+};
+
+export type ProjectCaseStudyDescriptionResourcesBlock = ResourceLink & {
+  __typename?: 'ProjectCaseStudyDescriptionResourcesBlock';
+  sys: ResourceSys;
+};
+
+export type ProjectCaseStudyDescriptionResourcesHyperlink = ResourceLink & {
+  __typename?: 'ProjectCaseStudyDescriptionResourcesHyperlink';
+  sys: ResourceSys;
+};
+
+export type ProjectCaseStudyDescriptionResourcesInline = ResourceLink & {
+  __typename?: 'ProjectCaseStudyDescriptionResourcesInline';
+  sys: ResourceSys;
+};
+
+export type ProjectCaseStudyFilter = {
+  AND?: InputMaybe<Array<InputMaybe<ProjectCaseStudyFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<ProjectCaseStudyFilter>>>;
+  client?: InputMaybe<Scalars['String']['input']>;
+  client_contains?: InputMaybe<Scalars['String']['input']>;
+  client_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  client_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  client_not?: InputMaybe<Scalars['String']['input']>;
+  client_not_contains?: InputMaybe<Scalars['String']['input']>;
+  client_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  description_contains?: InputMaybe<Scalars['String']['input']>;
+  description_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  description_not_contains?: InputMaybe<Scalars['String']['input']>;
+  skillsUsed_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  skillsUsed_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  skillsUsed_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  skillsUsed_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  sys?: InputMaybe<SysFilter>;
+  technologiesUsed_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  technologiesUsed_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  technologiesUsed_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  technologiesUsed_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_contains?: InputMaybe<Scalars['String']['input']>;
+  title_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_not?: InputMaybe<Scalars['String']['input']>;
+  title_not_contains?: InputMaybe<Scalars['String']['input']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url?: InputMaybe<Scalars['String']['input']>;
+  url_contains?: InputMaybe<Scalars['String']['input']>;
+  url_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  url_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  url_not?: InputMaybe<Scalars['String']['input']>;
+  url_not_contains?: InputMaybe<Scalars['String']['input']>;
+  url_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ProjectCaseStudyLinkingCollections = {
+  __typename?: 'ProjectCaseStudyLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type ProjectCaseStudyLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export enum ProjectCaseStudyOrder {
+  ClientAsc = 'client_ASC',
+  ClientDesc = 'client_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  UrlAsc = 'url_ASC',
+  UrlDesc = 'url_DESC'
+}
+
 export type Query = {
   __typename?: 'Query';
   _node?: Maybe<_Node>;
@@ -1411,6 +1600,8 @@ export type Query = {
   pageBlogPostCollection?: Maybe<PageBlogPostCollection>;
   pageLanding?: Maybe<PageLanding>;
   pageLandingCollection?: Maybe<PageLandingCollection>;
+  projectCaseStudy?: Maybe<ProjectCaseStudy>;
+  projectCaseStudyCollection?: Maybe<ProjectCaseStudyCollection>;
   quote?: Maybe<Quote>;
   quoteCollection?: Maybe<QuoteCollection>;
   test?: Maybe<Test>;
@@ -1575,6 +1766,25 @@ export type QueryPageLandingCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
   where?: InputMaybe<PageLandingFilter>;
+};
+
+
+export type QueryProjectCaseStudyArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryProjectCaseStudyCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<ProjectCaseStudyOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<ProjectCaseStudyFilter>;
 };
 
 
@@ -1993,7 +2203,10 @@ export type PageBlogPostFieldsFragment = { __typename: 'PageBlogPost', internalN
         ) | (
           { __typename?: 'ComponentRichImage' }
           & RichImageFieldsFragment
-        ) | { __typename?: 'ComponentSeo' } | { __typename?: 'PageBlogPost' } | { __typename?: 'PageLanding' } | { __typename?: 'Quote' } | { __typename?: 'Test' } | null> } } } | null, relatedBlogPostsCollection?: { __typename?: 'PageBlogPostRelatedBlogPostsCollection', items: Array<(
+        ) | { __typename?: 'ComponentSeo' } | { __typename?: 'PageBlogPost' } | { __typename?: 'PageLanding' } | (
+          { __typename?: 'ProjectCaseStudy' }
+          & RichProjectFieldsFragment
+        ) | { __typename?: 'Quote' } | { __typename?: 'Test' } | null> } } } | null, relatedBlogPostsCollection?: { __typename?: 'PageBlogPostRelatedBlogPostsCollection', items: Array<(
       { __typename?: 'PageBlogPost' }
       & ReferencePageBlogPostFieldsFragment
     ) | null> } | null };
@@ -2054,10 +2267,53 @@ export type PageLandingCollectionQuery = { __typename?: 'Query', pageLandingColl
       & PageLandingFieldsFragment
     ) | null> } | null };
 
+export type ReferenceProjectCaseStudyFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, spaceId: string } };
+
+export type ProjectCaseStudyFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, description?: { __typename?: 'ProjectCaseStudyDescription', json: any, links: { __typename?: 'ProjectCaseStudyDescriptionLinks', entries: { __typename?: 'ProjectCaseStudyDescriptionEntries', block: Array<{ __typename?: 'ComponentAuthor' } | (
+          { __typename?: 'ComponentQuote' }
+          & RichQuoteFieldsFragment
+        ) | (
+          { __typename?: 'ComponentRichImage' }
+          & RichImageFieldsFragment
+        ) | { __typename?: 'ComponentSeo' } | { __typename?: 'PageBlogPost' } | { __typename?: 'PageLanding' } | { __typename?: 'ProjectCaseStudy' } | { __typename?: 'Quote' } | { __typename?: 'Test' } | null> } } } | null };
+
+export type PageProjectCaseStudyQueryVariables = Exact<{
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+}>;
+
+
+export type PageProjectCaseStudyQuery = { __typename?: 'Query', projectCaseStudy?: (
+    { __typename?: 'ProjectCaseStudy' }
+    & ProjectCaseStudyFieldsFragment
+  ) | null };
+
+export type PageProjectCaseStudyCollectionQueryVariables = Exact<{
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<ProjectCaseStudyFilter>;
+}>;
+
+
+export type PageProjectCaseStudyCollectionQuery = { __typename?: 'Query', projectCaseStudyCollection?: { __typename?: 'ProjectCaseStudyCollection', items: Array<(
+      { __typename?: 'ProjectCaseStudy' }
+      & ProjectCaseStudyFieldsFragment
+    ) | null> } | null };
+
 export type RichImageFieldsFragment = { __typename: 'ComponentRichImage', internalName?: string | null, caption?: string | null, fullWidth?: boolean | null, sys: { __typename?: 'Sys', id: string }, image?: (
     { __typename?: 'Asset' }
     & ImageFieldsFragment
   ) | null };
+
+export type RichProjectFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string }, description?: { __typename?: 'ProjectCaseStudyDescription', json: any, links: { __typename?: 'ProjectCaseStudyDescriptionLinks', entries: { __typename?: 'ProjectCaseStudyDescriptionEntries', block: Array<{ __typename?: 'ComponentAuthor' } | (
+          { __typename?: 'ComponentQuote' }
+          & RichQuoteFieldsFragment
+        ) | (
+          { __typename?: 'ComponentRichImage' }
+          & RichImageFieldsFragment
+        ) | { __typename?: 'ComponentSeo' } | { __typename?: 'PageBlogPost' } | { __typename?: 'PageLanding' } | { __typename?: 'ProjectCaseStudy' } | { __typename?: 'Quote' } | { __typename?: 'Test' } | null> } } } | null };
 
 export type RichQuoteFieldsFragment = { __typename: 'ComponentQuote', text?: string | null, author?: string | null, sys: { __typename?: 'Sys', id: string } };
 
@@ -2143,6 +2399,30 @@ export const RichQuoteFieldsFragmentDoc = gql`
   author
 }
     `;
+export const RichProjectFieldsFragmentDoc = gql`
+    fragment RichProjectFields on ProjectCaseStudy {
+  __typename
+  sys {
+    id
+  }
+  title
+  url
+  client
+  skillsUsed
+  technologiesUsed
+  description {
+    json
+    links {
+      entries {
+        block {
+          ...RichImageFields
+          ...RichQuoteFields
+        }
+      }
+    }
+  }
+}
+    `;
 export const ReferencePageBlogPostFieldsFragmentDoc = gql`
     fragment ReferencePageBlogPostFields on PageBlogPost {
   __typename
@@ -2190,6 +2470,7 @@ export const PageBlogPostFieldsFragmentDoc = gql`
         block {
           ...RichImageFields
           ...RichQuoteFields
+          ...RichProjectFields
         }
       }
     }
@@ -2214,6 +2495,45 @@ export const PageLandingFieldsFragmentDoc = gql`
   }
   featuredBlogPost {
     ...ReferencePageBlogPostFields
+  }
+}
+    `;
+export const ReferenceProjectCaseStudyFieldsFragmentDoc = gql`
+    fragment ReferenceProjectCaseStudyFields on ProjectCaseStudy {
+  __typename
+  sys {
+    id
+    spaceId
+  }
+  title
+  url
+  client
+  skillsUsed
+  technologiesUsed
+}
+    `;
+export const ProjectCaseStudyFieldsFragmentDoc = gql`
+    fragment ProjectCaseStudyFields on ProjectCaseStudy {
+  __typename
+  sys {
+    id
+    spaceId
+  }
+  title
+  url
+  client
+  skillsUsed
+  technologiesUsed
+  description {
+    json
+    links {
+      entries {
+        block {
+          ...RichImageFields
+          ...RichQuoteFields
+        }
+      }
+    }
   }
 }
     `;
@@ -2255,6 +2575,7 @@ ${ImageFieldsFragmentDoc}
 ${AuthorFieldsFragmentDoc}
 ${RichImageFieldsFragmentDoc}
 ${RichQuoteFieldsFragmentDoc}
+${RichProjectFieldsFragmentDoc}
 ${ReferencePageBlogPostFieldsFragmentDoc}`;
 export const PageBlogPostCollectionDocument = gql`
     query pageBlogPostCollection($locale: String, $preview: Boolean, $limit: Int, $order: [PageBlogPostOrder], $where: PageBlogPostFilter) {
@@ -2276,6 +2597,7 @@ ${ImageFieldsFragmentDoc}
 ${AuthorFieldsFragmentDoc}
 ${RichImageFieldsFragmentDoc}
 ${RichQuoteFieldsFragmentDoc}
+${RichProjectFieldsFragmentDoc}
 ${ReferencePageBlogPostFieldsFragmentDoc}`;
 export const PageLandingDocument = gql`
     query pageLanding($locale: String, $preview: Boolean) {
@@ -2303,6 +2625,33 @@ ${SeoFieldsFragmentDoc}
 ${ImageFieldsFragmentDoc}
 ${ReferencePageBlogPostFieldsFragmentDoc}
 ${AuthorFieldsFragmentDoc}`;
+export const PageProjectCaseStudyDocument = gql`
+    query pageProjectCaseStudy($id: String!, $locale: String, $preview: Boolean) {
+  projectCaseStudy(id: $id, locale: $locale, preview: $preview) {
+    ...ProjectCaseStudyFields
+  }
+}
+    ${ProjectCaseStudyFieldsFragmentDoc}
+${RichImageFieldsFragmentDoc}
+${ImageFieldsFragmentDoc}
+${RichQuoteFieldsFragmentDoc}`;
+export const PageProjectCaseStudyCollectionDocument = gql`
+    query pageProjectCaseStudyCollection($limit: Int, $locale: String, $preview: Boolean, $where: ProjectCaseStudyFilter) {
+  projectCaseStudyCollection(
+    limit: $limit
+    locale: $locale
+    preview: $preview
+    where: $where
+  ) {
+    items {
+      ...ProjectCaseStudyFields
+    }
+  }
+}
+    ${ProjectCaseStudyFieldsFragmentDoc}
+${RichImageFieldsFragmentDoc}
+${ImageFieldsFragmentDoc}
+${RichQuoteFieldsFragmentDoc}`;
 export const SitemapPagesDocument = gql`
     query sitemapPages($locale: String!) {
   ...sitemapPagesFields
@@ -2327,6 +2676,12 @@ export function getSdk(client: GraphQLClient, withWrapper: SdkFunctionWrapper = 
     },
     pageLandingCollection(variables?: PageLandingCollectionQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<PageLandingCollectionQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<PageLandingCollectionQuery>({ document: PageLandingCollectionDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'pageLandingCollection', 'query', variables);
+    },
+    pageProjectCaseStudy(variables: PageProjectCaseStudyQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<PageProjectCaseStudyQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<PageProjectCaseStudyQuery>({ document: PageProjectCaseStudyDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'pageProjectCaseStudy', 'query', variables);
+    },
+    pageProjectCaseStudyCollection(variables?: PageProjectCaseStudyCollectionQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<PageProjectCaseStudyCollectionQuery> {
+      return withWrapper((wrappedRequestHeaders) => client.request<PageProjectCaseStudyCollectionQuery>({ document: PageProjectCaseStudyCollectionDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'pageProjectCaseStudyCollection', 'query', variables);
     },
     sitemapPages(variables: SitemapPagesQueryVariables, requestHeaders?: GraphQLClientRequestHeaders, signal?: RequestInit['signal']): Promise<SitemapPagesQuery> {
       return withWrapper((wrappedRequestHeaders) => client.request<SitemapPagesQuery>({ document: SitemapPagesDocument, variables, requestHeaders: { ...requestHeaders, ...wrappedRequestHeaders }, signal }), 'sitemapPages', 'query', variables);

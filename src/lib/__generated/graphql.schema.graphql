@@ -948,6 +948,129 @@ enum PageLandingOrder {
 }
 
 """
+[See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy)
+"""
+type ProjectCaseStudy implements Entry & _Node {
+  _id: ID!
+  client(locale: String, useFallbackLocale: Boolean): String
+  contentfulMetadata: ContentfulMetadata!
+  description(locale: String, useFallbackLocale: Boolean): ProjectCaseStudyDescription
+  linkedFrom(allowedLocales: [String]): ProjectCaseStudyLinkingCollections
+  skillsUsed(locale: String, useFallbackLocale: Boolean): [String]
+  sys: Sys!
+  technologiesUsed(locale: String, useFallbackLocale: Boolean): [String]
+  title(locale: String, useFallbackLocale: Boolean): String
+  url(locale: String, useFallbackLocale: Boolean): String
+}
+
+type ProjectCaseStudyCollection {
+  items: [ProjectCaseStudy]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+type ProjectCaseStudyDescription {
+  json: JSON!
+  links: ProjectCaseStudyDescriptionLinks!
+}
+
+type ProjectCaseStudyDescriptionAssets {
+  block: [Asset]!
+  hyperlink: [Asset]!
+}
+
+type ProjectCaseStudyDescriptionEntries {
+  block: [Entry]!
+  hyperlink: [Entry]!
+  inline: [Entry]!
+}
+
+type ProjectCaseStudyDescriptionLinks {
+  assets: ProjectCaseStudyDescriptionAssets!
+  entries: ProjectCaseStudyDescriptionEntries!
+  resources: ProjectCaseStudyDescriptionResources!
+}
+
+type ProjectCaseStudyDescriptionResources {
+  block: [ProjectCaseStudyDescriptionResourcesBlock!]!
+  hyperlink: [ProjectCaseStudyDescriptionResourcesHyperlink!]!
+  inline: [ProjectCaseStudyDescriptionResourcesInline!]!
+}
+
+type ProjectCaseStudyDescriptionResourcesBlock implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ProjectCaseStudyDescriptionResourcesHyperlink implements ResourceLink {
+  sys: ResourceSys!
+}
+
+type ProjectCaseStudyDescriptionResourcesInline implements ResourceLink {
+  sys: ResourceSys!
+}
+
+input ProjectCaseStudyFilter {
+  AND: [ProjectCaseStudyFilter]
+  OR: [ProjectCaseStudyFilter]
+  client: String
+  client_contains: String
+  client_exists: Boolean
+  client_in: [String]
+  client_not: String
+  client_not_contains: String
+  client_not_in: [String]
+  contentfulMetadata: ContentfulMetadataFilter
+  description_contains: String
+  description_exists: Boolean
+  description_not_contains: String
+  skillsUsed_contains_all: [String]
+  skillsUsed_contains_none: [String]
+  skillsUsed_contains_some: [String]
+  skillsUsed_exists: Boolean
+  sys: SysFilter
+  technologiesUsed_contains_all: [String]
+  technologiesUsed_contains_none: [String]
+  technologiesUsed_contains_some: [String]
+  technologiesUsed_exists: Boolean
+  title: String
+  title_contains: String
+  title_exists: Boolean
+  title_in: [String]
+  title_not: String
+  title_not_contains: String
+  title_not_in: [String]
+  url: String
+  url_contains: String
+  url_exists: Boolean
+  url_in: [String]
+  url_not: String
+  url_not_contains: String
+  url_not_in: [String]
+}
+
+type ProjectCaseStudyLinkingCollections {
+  entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean): EntryCollection
+}
+
+enum ProjectCaseStudyOrder {
+  client_ASC
+  client_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  title_ASC
+  title_DESC
+  url_ASC
+  url_DESC
+}
+
+"""
 The 'Quality' type represents quality as whole numeric values between `1` and `100`.
 """
 scalar Quality
@@ -970,6 +1093,8 @@ type Query {
   pageBlogPostCollection(limit: Int = 100, locale: String, order: [PageBlogPostOrder], preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean, where: PageBlogPostFilter): PageBlogPostCollection
   pageLanding(id: String!, locale: String, preview: Boolean, useFallbackLocale: Boolean): PageLanding
   pageLandingCollection(limit: Int = 100, locale: String, order: [PageLandingOrder], preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean, where: PageLandingFilter): PageLandingCollection
+  projectCaseStudy(id: String!, locale: String, preview: Boolean, useFallbackLocale: Boolean): ProjectCaseStudy
+  projectCaseStudyCollection(limit: Int = 100, locale: String, order: [ProjectCaseStudyOrder], preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean, where: ProjectCaseStudyFilter): ProjectCaseStudyCollection
   quote(id: String!, locale: String, preview: Boolean, useFallbackLocale: Boolean): Quote
   quoteCollection(limit: Int = 100, locale: String, order: [QuoteOrder], preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean, where: QuoteFilter): QuoteCollection
   test(id: String!, locale: String, preview: Boolean, useFallbackLocale: Boolean): Test

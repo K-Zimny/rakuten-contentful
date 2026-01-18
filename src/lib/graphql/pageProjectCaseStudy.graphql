@@ -1,0 +1,50 @@
+fragment ReferenceProjectCaseStudyFields on ProjectCaseStudy {
+  __typename
+  sys {
+    id
+    spaceId
+  }
+  title
+  url
+  client
+  skillsUsed
+  technologiesUsed
+}
+
+fragment ProjectCaseStudyFields on ProjectCaseStudy {
+  __typename
+  sys {
+    id
+    spaceId
+  }
+  title
+  url
+  client
+  skillsUsed
+  technologiesUsed
+  description {
+    json
+    links {
+      entries {
+        block {
+          ...RichImageFields
+          ...RichQuoteFields
+        }
+      }
+    }
+  }
+}
+
+query pageProjectCaseStudy($id: String!, $locale: String, $preview: Boolean) {
+  projectCaseStudy(id: $id, locale: $locale, preview: $preview) {
+    ...ProjectCaseStudyFields
+  }
+}
+
+query pageProjectCaseStudyCollection($limit: Int, $locale: String, $preview: Boolean, $where: ProjectCaseStudyFilter) {
+  projectCaseStudyCollection(limit: $limit, locale: $locale, preview: $preview, where: $where) {
+    items {
+      ...ProjectCaseStudyFields
+    }
+  }
+}

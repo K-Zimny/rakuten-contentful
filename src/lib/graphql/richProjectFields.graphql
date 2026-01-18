@@ -1,0 +1,22 @@
+fragment RichProjectFields on ProjectCaseStudy {
+  __typename
+  sys {
+    id
+  }
+  title
+  url
+  client
+  skillsUsed
+  technologiesUsed
+  description {
+    json
+    links {
+      entries {
+        block {
+          ...RichImageFields
+          ...RichQuoteFields
+        }
+      }
+    }
+  }
+}
