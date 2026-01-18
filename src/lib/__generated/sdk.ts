@@ -185,6 +185,7 @@ export type AssetLinkingCollections = {
   componentSeoCollection?: Maybe<ComponentSeoCollection>;
   entryCollection?: Maybe<EntryCollection>;
   pageBlogPostCollection?: Maybe<PageBlogPostCollection>;
+  projectCaseStudyCollection?: Maybe<ProjectCaseStudyCollection>;
 };
 
 
@@ -225,6 +226,15 @@ export type AssetLinkingCollectionsEntryCollectionArgs = {
 
 
 export type AssetLinkingCollectionsPageBlogPostCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type AssetLinkingCollectionsProjectCaseStudyCollectionArgs = {
   limit?: InputMaybe<Scalars['Int']['input']>;
   locale?: InputMaybe<Scalars['String']['input']>;
   preview?: InputMaybe<Scalars['Boolean']['input']>;
@@ -1399,7 +1409,9 @@ export type ProjectCaseStudy = Entry & _Node & {
   client?: Maybe<Scalars['String']['output']>;
   contentfulMetadata: ContentfulMetadata;
   description?: Maybe<ProjectCaseStudyDescription>;
+  image?: Maybe<Asset>;
   linkedFrom?: Maybe<ProjectCaseStudyLinkingCollections>;
+  repo?: Maybe<Scalars['String']['output']>;
   skillsUsed?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   sys: Sys;
   technologiesUsed?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
@@ -1423,8 +1435,23 @@ export type ProjectCaseStudyDescriptionArgs = {
 
 
 /** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
+export type ProjectCaseStudyImageArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
 export type ProjectCaseStudyLinkedFromArgs = {
   allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
+export type ProjectCaseStudyRepoArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 
@@ -1525,6 +1552,14 @@ export type ProjectCaseStudyFilter = {
   description_contains?: InputMaybe<Scalars['String']['input']>;
   description_exists?: InputMaybe<Scalars['Boolean']['input']>;
   description_not_contains?: InputMaybe<Scalars['String']['input']>;
+  image_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  repo?: InputMaybe<Scalars['String']['input']>;
+  repo_contains?: InputMaybe<Scalars['String']['input']>;
+  repo_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  repo_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  repo_not?: InputMaybe<Scalars['String']['input']>;
+  repo_not_contains?: InputMaybe<Scalars['String']['input']>;
+  repo_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   skillsUsed_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   skillsUsed_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   skillsUsed_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1567,6 +1602,8 @@ export type ProjectCaseStudyLinkingCollectionsEntryCollectionArgs = {
 export enum ProjectCaseStudyOrder {
   ClientAsc = 'client_ASC',
   ClientDesc = 'client_DESC',
+  RepoAsc = 'repo_ASC',
+  RepoDesc = 'repo_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
   SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
   SysIdAsc = 'sys_id_ASC',
@@ -2267,9 +2304,15 @@ export type PageLandingCollectionQuery = { __typename?: 'Query', pageLandingColl
       & PageLandingFieldsFragment
     ) | null> } | null };
 
-export type ReferenceProjectCaseStudyFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, spaceId: string } };
+export type ReferenceProjectCaseStudyFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, repo?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, image?: (
+    { __typename?: 'Asset' }
+    & ImageFieldsFragment
+  ) | null };
 
-export type ProjectCaseStudyFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, description?: { __typename?: 'ProjectCaseStudyDescription', json: any, links: { __typename?: 'ProjectCaseStudyDescriptionLinks', entries: { __typename?: 'ProjectCaseStudyDescriptionEntries', block: Array<{ __typename?: 'ComponentAuthor' } | (
+export type ProjectCaseStudyFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, repo?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, image?: (
+    { __typename?: 'Asset' }
+    & ImageFieldsFragment
+  ) | null, description?: { __typename?: 'ProjectCaseStudyDescription', json: any, links: { __typename?: 'ProjectCaseStudyDescriptionLinks', entries: { __typename?: 'ProjectCaseStudyDescriptionEntries', block: Array<{ __typename?: 'ComponentAuthor' } | (
           { __typename?: 'ComponentQuote' }
           & RichQuoteFieldsFragment
         ) | (
@@ -2307,7 +2350,10 @@ export type RichImageFieldsFragment = { __typename: 'ComponentRichImage', intern
     & ImageFieldsFragment
   ) | null };
 
-export type RichProjectFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string }, description?: { __typename?: 'ProjectCaseStudyDescription', json: any } | null };
+export type RichProjectFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, repo?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string }, image?: (
+    { __typename?: 'Asset' }
+    & ImageFieldsFragment
+  ) | null, description?: { __typename?: 'ProjectCaseStudyDescription', json: any } | null };
 
 export type RichQuoteFieldsFragment = { __typename: 'ComponentQuote', text?: string | null, author?: string | null, sys: { __typename?: 'Sys', id: string } };
 
@@ -2400,7 +2446,11 @@ export const RichProjectFieldsFragmentDoc = gql`
     id
   }
   title
+  image {
+    ...ImageFields
+  }
   url
+  repo
   client
   skillsUsed
   technologiesUsed
@@ -2492,7 +2542,11 @@ export const ReferenceProjectCaseStudyFieldsFragmentDoc = gql`
     spaceId
   }
   title
+  image {
+    ...ImageFields
+  }
   url
+  repo
   client
   skillsUsed
   technologiesUsed
@@ -2506,7 +2560,11 @@ export const ProjectCaseStudyFieldsFragmentDoc = gql`
     spaceId
   }
   title
+  image {
+    ...ImageFields
+  }
   url
+  repo
   client
   skillsUsed
   technologiesUsed
@@ -2618,8 +2676,8 @@ export const PageProjectCaseStudyDocument = gql`
   }
 }
     ${ProjectCaseStudyFieldsFragmentDoc}
-${RichImageFieldsFragmentDoc}
 ${ImageFieldsFragmentDoc}
+${RichImageFieldsFragmentDoc}
 ${RichQuoteFieldsFragmentDoc}`;
 export const PageProjectCaseStudyCollectionDocument = gql`
     query pageProjectCaseStudyCollection($limit: Int, $locale: String, $preview: Boolean, $where: ProjectCaseStudyFilter) {
@@ -2635,8 +2693,8 @@ export const PageProjectCaseStudyCollectionDocument = gql`
   }
 }
     ${ProjectCaseStudyFieldsFragmentDoc}
-${RichImageFieldsFragmentDoc}
 ${ImageFieldsFragmentDoc}
+${RichImageFieldsFragmentDoc}
 ${RichQuoteFieldsFragmentDoc}`;
 export const SitemapPagesDocument = gql`
     query sitemapPages($locale: String!) {

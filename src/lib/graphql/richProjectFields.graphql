@@ -4,7 +4,11 @@ fragment RichProjectFields on ProjectCaseStudy {
     id
   }
   title
+  image {
+    ...ImageFields
+  }
   url
+  repo
   client
   skillsUsed
   technologiesUsed

@@ -111,6 +111,7 @@ type AssetLinkingCollections {
   componentSeoCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean): ComponentSeoCollection
   entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean): EntryCollection
   pageBlogPostCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean): PageBlogPostCollection
+  projectCaseStudyCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean): ProjectCaseStudyCollection
 }
 
 enum AssetOrder {
@@ -955,7 +956,9 @@ type ProjectCaseStudy implements Entry & _Node {
   client(locale: String, useFallbackLocale: Boolean): String
   contentfulMetadata: ContentfulMetadata!
   description(locale: String, useFallbackLocale: Boolean): ProjectCaseStudyDescription
+  image(locale: String, preview: Boolean, useFallbackLocale: Boolean): Asset
   linkedFrom(allowedLocales: [String]): ProjectCaseStudyLinkingCollections
+  repo(locale: String, useFallbackLocale: Boolean): String
   skillsUsed(locale: String, useFallbackLocale: Boolean): [String]
   sys: Sys!
   technologiesUsed(locale: String, useFallbackLocale: Boolean): [String]
@@ -1024,6 +1027,14 @@ input ProjectCaseStudyFilter {
   description_contains: String
   description_exists: Boolean
   description_not_contains: String
+  image_exists: Boolean
+  repo: String
+  repo_contains: String
+  repo_exists: Boolean
+  repo_in: [String]
+  repo_not: String
+  repo_not_contains: String
+  repo_not_in: [String]
   skillsUsed_contains_all: [String]
   skillsUsed_contains_none: [String]
   skillsUsed_contains_some: [String]
@@ -1056,6 +1067,8 @@ type ProjectCaseStudyLinkingCollections {
 enum ProjectCaseStudyOrder {
   client_ASC
   client_DESC
+  repo_ASC
+  repo_DESC
   sys_firstPublishedAt_ASC
   sys_firstPublishedAt_DESC
   sys_id_ASC

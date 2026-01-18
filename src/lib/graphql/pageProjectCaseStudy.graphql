@@ -5,7 +5,11 @@ fragment ReferenceProjectCaseStudyFields on ProjectCaseStudy {
     spaceId
   }
   title
+  image {
+    ...ImageFields
+  }
   url
+  repo
   client
   skillsUsed
   technologiesUsed
@@ -18,7 +22,11 @@ fragment ProjectCaseStudyFields on ProjectCaseStudy {
     spaceId
   }
   title
+  image {
+    ...ImageFields
+  }
   url
+  repo
   client
   skillsUsed
   technologiesUsed
