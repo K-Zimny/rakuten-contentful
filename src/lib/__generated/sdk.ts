@@ -2307,13 +2307,7 @@ export type RichImageFieldsFragment = { __typename: 'ComponentRichImage', intern
     & ImageFieldsFragment
   ) | null };
 
-export type RichProjectFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string }, description?: { __typename?: 'ProjectCaseStudyDescription', json: any, links: { __typename?: 'ProjectCaseStudyDescriptionLinks', entries: { __typename?: 'ProjectCaseStudyDescriptionEntries', block: Array<{ __typename?: 'ComponentAuthor' } | (
-          { __typename?: 'ComponentQuote' }
-          & RichQuoteFieldsFragment
-        ) | (
-          { __typename?: 'ComponentRichImage' }
-          & RichImageFieldsFragment
-        ) | { __typename?: 'ComponentSeo' } | { __typename?: 'PageBlogPost' } | { __typename?: 'PageLanding' } | { __typename?: 'ProjectCaseStudy' } | { __typename?: 'Quote' } | { __typename?: 'Test' } | null> } } } | null };
+export type RichProjectFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string }, description?: { __typename?: 'ProjectCaseStudyDescription', json: any } | null };
 
 export type RichQuoteFieldsFragment = { __typename: 'ComponentQuote', text?: string | null, author?: string | null, sys: { __typename?: 'Sys', id: string } };
 
@@ -2412,14 +2406,6 @@ export const RichProjectFieldsFragmentDoc = gql`
   technologiesUsed
   description {
     json
-    links {
-      entries {
-        block {
-          ...RichImageFields
-          ...RichQuoteFields
-        }
-      }
-    }
   }
 }
     `;

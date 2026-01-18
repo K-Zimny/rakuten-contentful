@@ -10,13 +10,5 @@ fragment RichProjectFields on ProjectCaseStudy {
   technologiesUsed
   description {
     json
-    links {
-      entries {
-        block {
-          ...RichImageFields
-          ...RichQuoteFields
-        }
-      }
-    }
   }
 }
