@@ -2,6 +2,8 @@ import { dir } from 'i18next';
 import type { Metadata, Viewport } from 'next';
 import { Urbanist } from 'next/font/google';
 import { draftMode } from 'next/headers';
+import { Analytics } from '@vercel/analytics/next';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { ContentfulPreviewProvider } from '@src/components/features/contentful';
 import TranslationsProvider from '@src/components/shared/i18n/TranslationProvider';
@@ -58,6 +60,8 @@ export default async function PageLayout({ children, params }: LayoutProps) {
             <div id="portal" className={`${urbanist.variable} font-sans`} />
           </ContentfulPreviewProvider>
         </TranslationsProvider>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
