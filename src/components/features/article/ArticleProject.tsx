@@ -104,7 +104,7 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
                             {(updatedProject.technologiesUsed && updatedProject.technologiesUsed.length > 0) && (
                                 <div className="mt-12 mb-16" {...inspectorProps({ fieldId: 'technologiesUsed' })}>
                                     <h3 className="mb-2 text-sm text-left font-bold text-gray-700">Tech</h3>
-                                    <div className="flex flex-wrap gap-2">
+                                    <div className="flex flex-wrap flex-wrap gap-2">
                                         {updatedProject.technologiesUsed.map((tech, index) => (
                                             tech && (
                                                 <span
@@ -122,7 +122,7 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
                             {(updatedProject.skillsUsed && updatedProject.skillsUsed.length > 0) && (
                                 <div className="mb-16" {...inspectorProps({ fieldId: 'skillsUsed' })}>
                                     <h3 className="mb-2 text-sm text-left font-bold text-gray-700">Skills</h3>
-                                    <div className="flex justify-center gap-2">
+                                    <div className="flex flex-wrap justify-center gap-2">
                                         {updatedProject.skillsUsed.map((skill, index) => (
                                             skill && (
                                                 <span
