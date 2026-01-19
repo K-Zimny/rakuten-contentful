@@ -26,7 +26,7 @@ export const ArticleTile = ({ article, className }: ArticleTileProps) => {
     <Link className="flex flex-col" href={`/${slug}`}>
       <div
         className={twMerge(
-          'flex flex-1 flex-col overflow-hidden rounded-2xl border border-gray300 shadow-lg',
+          'flex flex-1 flex-col overflow-hidden rounded-2xl border border-gray300 shadow-lg hover-effect',
           className,
         )}>
         {featuredImage && (

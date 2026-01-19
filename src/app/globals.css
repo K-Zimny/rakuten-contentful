@@ -35,3 +35,14 @@
     @apply font-normal leading-snug tracking-snug text-gray600 md:leading-normal;
   }
 }
+
+/* Animations */
+
+.hover-effect {
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.hover-effect:hover {
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  transform: scale(0.99);
+}

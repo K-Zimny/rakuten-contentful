@@ -47,7 +47,7 @@ export const ArticleFeatureSection = ({ featureSection }: ArticleFeatureSectionP
   // Left-right variation (title left, list right)
   if (variation === 'left-right') {
     return (
-      <div className='flex flex-col md:flex-row gap-2 py-14 my-14 md:py-20 md:my-20' {...inspectorProps({ fieldId: 'title' })}>
+      <div className='flex flex-col md:flex-row justify-between gap-2 py-14 my-14 md:py-20 md:my-20' {...inspectorProps({ fieldId: 'title' })}>
         <div className='pr-10 md:pr-40 pb-10 md:pb-40 rounded-br-md border-r border-r-gray300 border-b border-b-gray300'>
           <h2 className='mt-0 mb-4 text-gray700'>{updatedSection.title}</h2>
           {updatedSection.summary && (
@@ -74,7 +74,7 @@ export const ArticleFeatureSection = ({ featureSection }: ArticleFeatureSectionP
   // Right-left variation (list left, title right)
   if (variation === 'right-left') {
     return (
-      <div className='flex flex-col-reverse md:flex-row gap-2 py-14 my-14 md:py-20 md:my-20' {...inspectorProps({ fieldId: 'title' })}>
+      <div className='flex flex-col-reverse md:flex-row justify-between gap-2 py-14 my-14 md:py-20 md:my-20' {...inspectorProps({ fieldId: 'title' })}>
         {updatedSection.listItems && updatedSection.listItems.length > 0 && (
           <ul className="mt-0 list-disc pl-6" {...inspectorProps({ fieldId: 'listItems' })}>
             {updatedSection.listItems.map((item, index) => (

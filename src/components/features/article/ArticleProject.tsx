@@ -20,10 +20,10 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
     const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
     return (
-        <div className="max-w-2xl mx-auto my-8 rounded-2xl border border-gray300 shadow-md bg-gray-50 p-6">
+        <div className="max-w-2xl mx-auto my-8 rounded-2xl border border-gray300 shadow-md bg-gray-50 p-6 hover-effect">
             <p className="m-0 text-sm">Case Study</p>
             {updatedProject.title && (
-                <h2 className="mt-4 text-2xl font-bold" {...inspectorProps({ fieldId: 'title' })}>
+                <h2 className="mt-4 text-2xl text-gray700" {...inspectorProps({ fieldId: 'title' })}>
                     {updatedProject.title}
                 </h2>
             )}
@@ -49,7 +49,7 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
                     </div>
                 )} */}
 
-                <div className='flex justify-evenly'>
+                <div className='flex justify-evenly my-4'>
                     {updatedProject.url && (
                         <div {...inspectorProps({ fieldId: 'url' })} className='overflow-hidden'>
                             <a
@@ -85,7 +85,7 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
                         className="w-full flex items-center justify-between py-3 text-left hover:bg-gray-100 rounded-lg px-2 -mx-2 transition-colors"
                         aria-expanded={isDetailsOpen}
                     >
-                        <h3 className="text-lg font-semibold m-0 p-0">Project Details</h3>
+                        <h3 className="text-lg font-semibold m-0 p-0 text-gray700">Project Details</h3>
                         <svg
                             className={`w-5 h-5 transition-transform duration-200 ${isDetailsOpen ? 'rotate-180' : ''}`}
                             fill="none"
@@ -103,7 +103,7 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
 
                             {(updatedProject.technologiesUsed && updatedProject.technologiesUsed.length > 0) && (
                                 <div className="mt-12 mb-16" {...inspectorProps({ fieldId: 'technologiesUsed' })}>
-                                    <h3 className="mb-2 text-sm text-left font-bold text-gray-700">Tech</h3>
+                                    <h3 className="mb-2 text-sm text-left text-gray-700">Tech</h3>
                                     <div className="flex flex-wrap flex-wrap gap-2">
                                         {updatedProject.technologiesUsed.map((tech, index) => (
                                             tech && (
@@ -121,7 +121,7 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
 
                             {(updatedProject.skillsUsed && updatedProject.skillsUsed.length > 0) && (
                                 <div className="mb-16" {...inspectorProps({ fieldId: 'skillsUsed' })}>
-                                    <h3 className="mb-2 text-sm text-left font-bold text-gray-700">Skills</h3>
+                                    <h3 className="mb-2 text-sm text-left text-gray-700">Skills</h3>
                                     <div className="flex flex-wrap justify-center gap-2">
                                         {updatedProject.skillsUsed.map((skill, index) => (
                                             skill && (
@@ -138,7 +138,7 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
                             )}
 
                             <div {...inspectorProps({ fieldId: 'description' })}>
-                                <h3 className="mb-2 text-sm text-left font-bold text-gray-700">Description</h3>
+                                <h3 className="mb-2 text-sm text-left text-gray-700">Description</h3>
                                 <CtfRichText json={updatedProject.description.json} links={updatedProject.description.links || undefined} />
                             </div>
                         </div>
