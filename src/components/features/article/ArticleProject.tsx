@@ -36,7 +36,7 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
 
             {updatedProject.image && (
                 <CtfImage
-                    nextImageProps={{ className: 'my-8', priority: false, sizes: undefined }}
+                    nextImageProps={{ className: 'mt-8 mb-2', priority: false, sizes: undefined }}
                     {...updatedProject.image}
                 />
             )}
@@ -78,42 +78,6 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
                 </div>
             </div>
 
-            {(updatedProject.technologiesUsed && updatedProject.technologiesUsed.length > 0) && (
-                <div className="mb-4" {...inspectorProps({ fieldId: 'technologiesUsed' })}>
-                    <h3 className="mb-2 text-sm text-center font-bold text-gray-700">Tech</h3>
-                    <div className="flex flex-wrap justify-center gap-2">
-                        {updatedProject.technologiesUsed.map((tech, index) => (
-                            tech && (
-                                <span
-                                    key={index}
-                                    className="rounded-full bg-green-100 px-3 py-1 text-sm text-green-800"
-                                >
-                                    {tech}
-                                </span>
-                            )
-                        ))}
-                    </div>
-                </div>
-            )}
-
-            {(updatedProject.skillsUsed && updatedProject.skillsUsed.length > 0) && (
-                <div className="mb-4" {...inspectorProps({ fieldId: 'skillsUsed' })}>
-                    <h3 className="mb-2 text-sm text-center font-bold text-gray-700">Skills</h3>
-                    <div className="flex flex-wrap justify-center gap-2">
-                        {updatedProject.skillsUsed.map((skill, index) => (
-                            skill && (
-                                <span
-                                    key={index}
-                                    className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800"
-                                >
-                                    {skill}
-                                </span>
-                            )
-                        ))}
-                    </div>
-                </div>
-            )}
-
             {updatedProject.description && updatedProject.description.json && (
                 <div className="border-t border-gray-200 pt-4">
                     <button
@@ -136,7 +100,45 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
                             }`}
                     >
                         <div className="pb-4 pt-2">
+
+                            {(updatedProject.technologiesUsed && updatedProject.technologiesUsed.length > 0) && (
+                                <div className="mt-12 mb-16" {...inspectorProps({ fieldId: 'technologiesUsed' })}>
+                                    <h3 className="mb-2 text-sm text-left font-bold text-gray-700">Tech</h3>
+                                    <div className="flex flex-wrap gap-2">
+                                        {updatedProject.technologiesUsed.map((tech, index) => (
+                                            tech && (
+                                                <span
+                                                    key={index}
+                                                    className="text-center flex-grow rounded-full bg-green-100 px-3 py-1 text-sm text-green-800"
+                                                >
+                                                    {tech}
+                                                </span>
+                                            )
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
+                            {(updatedProject.skillsUsed && updatedProject.skillsUsed.length > 0) && (
+                                <div className="mb-16" {...inspectorProps({ fieldId: 'skillsUsed' })}>
+                                    <h3 className="mb-2 text-sm text-left font-bold text-gray-700">Skills</h3>
+                                    <div className="flex justify-center gap-2">
+                                        {updatedProject.skillsUsed.map((skill, index) => (
+                                            skill && (
+                                                <span
+                                                    key={index}
+                                                    className="text-center rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800"
+                                                >
+                                                    {skill}
+                                                </span>
+                                            )
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+
                             <div {...inspectorProps({ fieldId: 'description' })}>
+                                <h3 className="mb-2 text-sm text-left font-bold text-gray-700">Description</h3>
                                 <CtfRichText json={updatedProject.description.json} links={updatedProject.description.links || undefined} />
                             </div>
                         </div>

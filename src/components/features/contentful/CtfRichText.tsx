@@ -9,12 +9,12 @@ export type EmbeddedEntryType = ComponentRichImage | ComponentQuote | ProjectCas
 export interface ContentfulRichTextInterface {
   json: Document;
   links?:
-    | {
-        entries: {
-          block: Array<EmbeddedEntryType>;
-        };
-      }
-    | any;
+  | {
+    entries: {
+      block: Array<EmbeddedEntryType>;
+    };
+  }
+  | any;
 }
 
 export const EmbeddedEntry = (entry: EmbeddedEntryType) => {
@@ -50,7 +50,7 @@ export const CtfRichText = ({ json, links }: ContentfulRichTextInterface) => {
   const baseOptions = contentfulBaseRichTextOptions({ links, json });
 
   return (
-    <article className="prose prose-lg max-w-none">
+    <article className="prose prose-lg max-w-none text-sm">
       {documentToReactComponents(json, baseOptions)}
     </article>
   );
