@@ -33,7 +33,7 @@ export const ArticleHero = ({
     <div
       data-component="ArticleHero"
       className={twMerge(
-        `mx-auto flex max-w-4xl flex-col overflow-hidden rounded-2xl border border-gray300 shadow-md`,
+        `mx-auto flex flex-col overflow-hidden rounded-2xl border border-gray300 shadow-md`,
         isReversedLayout ? 'lg:flex-row-reverse' : 'lg:flex-row',
       )}>
       <div className="flex-1 basis-1/2" {...inspectorProps({ fieldId: 'featuredImage' })}>

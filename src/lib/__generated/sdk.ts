@@ -394,6 +394,124 @@ export enum ComponentAuthorOrder {
   SysPublishedVersionDesc = 'sys_publishedVersion_DESC'
 }
 
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/ComponentFeatureSection) */
+export type ComponentFeatureSection = Entry & _Node & {
+  __typename?: 'ComponentFeatureSection';
+  _id: Scalars['ID']['output'];
+  contentfulMetadata: ContentfulMetadata;
+  linkedFrom?: Maybe<ComponentFeatureSectionLinkingCollections>;
+  listItems?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  summary?: Maybe<Scalars['String']['output']>;
+  sys: Sys;
+  title?: Maybe<Scalars['String']['output']>;
+  variation?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/ComponentFeatureSection) */
+export type ComponentFeatureSectionLinkedFromArgs = {
+  allowedLocales?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/ComponentFeatureSection) */
+export type ComponentFeatureSectionListItemsArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/ComponentFeatureSection) */
+export type ComponentFeatureSectionSummaryArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/ComponentFeatureSection) */
+export type ComponentFeatureSectionTitleArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/ComponentFeatureSection) */
+export type ComponentFeatureSectionVariationArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export type ComponentFeatureSectionCollection = {
+  __typename?: 'ComponentFeatureSectionCollection';
+  items: Array<Maybe<ComponentFeatureSection>>;
+  limit: Scalars['Int']['output'];
+  skip: Scalars['Int']['output'];
+  total: Scalars['Int']['output'];
+};
+
+export type ComponentFeatureSectionFilter = {
+  AND?: InputMaybe<Array<InputMaybe<ComponentFeatureSectionFilter>>>;
+  OR?: InputMaybe<Array<InputMaybe<ComponentFeatureSectionFilter>>>;
+  contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  listItems_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  listItems_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  listItems_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  listItems_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  summary?: InputMaybe<Scalars['String']['input']>;
+  summary_contains?: InputMaybe<Scalars['String']['input']>;
+  summary_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  summary_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  summary_not?: InputMaybe<Scalars['String']['input']>;
+  summary_not_contains?: InputMaybe<Scalars['String']['input']>;
+  summary_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  sys?: InputMaybe<SysFilter>;
+  title?: InputMaybe<Scalars['String']['input']>;
+  title_contains?: InputMaybe<Scalars['String']['input']>;
+  title_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  title_not?: InputMaybe<Scalars['String']['input']>;
+  title_not_contains?: InputMaybe<Scalars['String']['input']>;
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  variation?: InputMaybe<Scalars['String']['input']>;
+  variation_contains?: InputMaybe<Scalars['String']['input']>;
+  variation_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  variation_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  variation_not?: InputMaybe<Scalars['String']['input']>;
+  variation_not_contains?: InputMaybe<Scalars['String']['input']>;
+  variation_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+};
+
+export type ComponentFeatureSectionLinkingCollections = {
+  __typename?: 'ComponentFeatureSectionLinkingCollections';
+  entryCollection?: Maybe<EntryCollection>;
+};
+
+
+export type ComponentFeatureSectionLinkingCollectionsEntryCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+export enum ComponentFeatureSectionOrder {
+  SummaryAsc = 'summary_ASC',
+  SummaryDesc = 'summary_DESC',
+  SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
+  SysFirstPublishedAtDesc = 'sys_firstPublishedAt_DESC',
+  SysIdAsc = 'sys_id_ASC',
+  SysIdDesc = 'sys_id_DESC',
+  SysPublishedAtAsc = 'sys_publishedAt_ASC',
+  SysPublishedAtDesc = 'sys_publishedAt_DESC',
+  SysPublishedVersionAsc = 'sys_publishedVersion_ASC',
+  SysPublishedVersionDesc = 'sys_publishedVersion_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  VariationAsc = 'variation_ASC',
+  VariationDesc = 'variation_DESC'
+}
+
 /** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/componentQuote) */
 export type ComponentQuote = Entry & _Node & {
   __typename?: 'ComponentQuote';
@@ -1413,6 +1531,7 @@ export type ProjectCaseStudy = Entry & _Node & {
   linkedFrom?: Maybe<ProjectCaseStudyLinkingCollections>;
   repo?: Maybe<Scalars['String']['output']>;
   skillsUsed?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
+  summary?: Maybe<Scalars['String']['output']>;
   sys: Sys;
   technologiesUsed?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   title?: Maybe<Scalars['String']['output']>;
@@ -1457,6 +1576,13 @@ export type ProjectCaseStudyRepoArgs = {
 
 /** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
 export type ProjectCaseStudySkillsUsedArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/projectCaseStudy) */
+export type ProjectCaseStudySummaryArgs = {
   locale?: InputMaybe<Scalars['String']['input']>;
   useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
@@ -1564,6 +1690,13 @@ export type ProjectCaseStudyFilter = {
   skillsUsed_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   skillsUsed_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   skillsUsed_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  summary?: InputMaybe<Scalars['String']['input']>;
+  summary_contains?: InputMaybe<Scalars['String']['input']>;
+  summary_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  summary_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  summary_not?: InputMaybe<Scalars['String']['input']>;
+  summary_not_contains?: InputMaybe<Scalars['String']['input']>;
+  summary_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   sys?: InputMaybe<SysFilter>;
   technologiesUsed_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   technologiesUsed_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -1626,6 +1759,8 @@ export type Query = {
   assetCollection?: Maybe<AssetCollection>;
   componentAuthor?: Maybe<ComponentAuthor>;
   componentAuthorCollection?: Maybe<ComponentAuthorCollection>;
+  componentFeatureSection?: Maybe<ComponentFeatureSection>;
+  componentFeatureSectionCollection?: Maybe<ComponentFeatureSectionCollection>;
   componentQuote?: Maybe<ComponentQuote>;
   componentQuoteCollection?: Maybe<ComponentQuoteCollection>;
   componentRichImage?: Maybe<ComponentRichImage>;
@@ -1697,6 +1832,25 @@ export type QueryComponentAuthorCollectionArgs = {
   skip?: InputMaybe<Scalars['Int']['input']>;
   useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
   where?: InputMaybe<ComponentAuthorFilter>;
+};
+
+
+export type QueryComponentFeatureSectionArgs = {
+  id: Scalars['String']['input'];
+  locale?: InputMaybe<Scalars['String']['input']>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+};
+
+
+export type QueryComponentFeatureSectionCollectionArgs = {
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  locale?: InputMaybe<Scalars['String']['input']>;
+  order?: InputMaybe<Array<InputMaybe<ComponentFeatureSectionOrder>>>;
+  preview?: InputMaybe<Scalars['Boolean']['input']>;
+  skip?: InputMaybe<Scalars['Int']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
+  where?: InputMaybe<ComponentFeatureSectionFilter>;
 };
 
 
@@ -2235,6 +2389,9 @@ export type PageBlogPostFieldsFragment = { __typename: 'PageBlogPost', internalN
     { __typename?: 'Asset' }
     & ImageFieldsFragment
   ) | null, content?: { __typename?: 'PageBlogPostContent', json: any, links: { __typename?: 'PageBlogPostContentLinks', entries: { __typename?: 'PageBlogPostContentEntries', block: Array<{ __typename?: 'ComponentAuthor' } | (
+          { __typename?: 'ComponentFeatureSection' }
+          & RichFeatureSectionFieldsFragment
+        ) | (
           { __typename?: 'ComponentQuote' }
           & RichQuoteFieldsFragment
         ) | (
@@ -2304,15 +2461,15 @@ export type PageLandingCollectionQuery = { __typename?: 'Query', pageLandingColl
       & PageLandingFieldsFragment
     ) | null> } | null };
 
-export type ReferenceProjectCaseStudyFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, repo?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, image?: (
+export type ReferenceProjectCaseStudyFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, summary?: string | null, url?: string | null, repo?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, image?: (
     { __typename?: 'Asset' }
     & ImageFieldsFragment
   ) | null };
 
-export type ProjectCaseStudyFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, repo?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, image?: (
+export type ProjectCaseStudyFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, summary?: string | null, url?: string | null, repo?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string, spaceId: string }, image?: (
     { __typename?: 'Asset' }
     & ImageFieldsFragment
-  ) | null, description?: { __typename?: 'ProjectCaseStudyDescription', json: any, links: { __typename?: 'ProjectCaseStudyDescriptionLinks', entries: { __typename?: 'ProjectCaseStudyDescriptionEntries', block: Array<{ __typename?: 'ComponentAuthor' } | (
+  ) | null, description?: { __typename?: 'ProjectCaseStudyDescription', json: any, links: { __typename?: 'ProjectCaseStudyDescriptionLinks', entries: { __typename?: 'ProjectCaseStudyDescriptionEntries', block: Array<{ __typename?: 'ComponentAuthor' } | { __typename?: 'ComponentFeatureSection' } | (
           { __typename?: 'ComponentQuote' }
           & RichQuoteFieldsFragment
         ) | (
@@ -2345,12 +2502,14 @@ export type PageProjectCaseStudyCollectionQuery = { __typename?: 'Query', projec
       & ProjectCaseStudyFieldsFragment
     ) | null> } | null };
 
+export type RichFeatureSectionFieldsFragment = { __typename: 'ComponentFeatureSection', variation?: string | null, title?: string | null, summary?: string | null, listItems?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string } };
+
 export type RichImageFieldsFragment = { __typename: 'ComponentRichImage', internalName?: string | null, caption?: string | null, fullWidth?: boolean | null, sys: { __typename?: 'Sys', id: string }, image?: (
     { __typename?: 'Asset' }
     & ImageFieldsFragment
   ) | null };
 
-export type RichProjectFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, url?: string | null, repo?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string }, image?: (
+export type RichProjectFieldsFragment = { __typename: 'ProjectCaseStudy', title?: string | null, summary?: string | null, url?: string | null, repo?: string | null, client?: string | null, skillsUsed?: Array<string | null> | null, technologiesUsed?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string }, image?: (
     { __typename?: 'Asset' }
     & ImageFieldsFragment
   ) | null, description?: { __typename?: 'ProjectCaseStudyDescription', json: any } | null };
@@ -2446,6 +2605,7 @@ export const RichProjectFieldsFragmentDoc = gql`
     id
   }
   title
+  summary
   image {
     ...ImageFields
   }
@@ -2457,6 +2617,18 @@ export const RichProjectFieldsFragmentDoc = gql`
   description {
     json
   }
+}
+    `;
+export const RichFeatureSectionFieldsFragmentDoc = gql`
+    fragment RichFeatureSectionFields on ComponentFeatureSection {
+  __typename
+  sys {
+    id
+  }
+  variation
+  title
+  summary
+  listItems
 }
     `;
 export const ReferencePageBlogPostFieldsFragmentDoc = gql`
@@ -2507,6 +2679,7 @@ export const PageBlogPostFieldsFragmentDoc = gql`
           ...RichImageFields
           ...RichQuoteFields
           ...RichProjectFields
+          ...RichFeatureSectionFields
         }
       }
     }
@@ -2542,6 +2715,7 @@ export const ReferenceProjectCaseStudyFieldsFragmentDoc = gql`
     spaceId
   }
   title
+  summary
   image {
     ...ImageFields
   }
@@ -2560,6 +2734,7 @@ export const ProjectCaseStudyFieldsFragmentDoc = gql`
     spaceId
   }
   title
+  summary
   image {
     ...ImageFields
   }
@@ -2620,6 +2795,7 @@ ${AuthorFieldsFragmentDoc}
 ${RichImageFieldsFragmentDoc}
 ${RichQuoteFieldsFragmentDoc}
 ${RichProjectFieldsFragmentDoc}
+${RichFeatureSectionFieldsFragmentDoc}
 ${ReferencePageBlogPostFieldsFragmentDoc}`;
 export const PageBlogPostCollectionDocument = gql`
     query pageBlogPostCollection($locale: String, $preview: Boolean, $limit: Int, $order: [PageBlogPostOrder], $where: PageBlogPostFilter) {
@@ -2642,6 +2818,7 @@ ${AuthorFieldsFragmentDoc}
 ${RichImageFieldsFragmentDoc}
 ${RichQuoteFieldsFragmentDoc}
 ${RichProjectFieldsFragmentDoc}
+${RichFeatureSectionFieldsFragmentDoc}
 ${ReferencePageBlogPostFieldsFragmentDoc}`;
 export const PageLandingDocument = gql`
     query pageLanding($locale: String, $preview: Boolean) {

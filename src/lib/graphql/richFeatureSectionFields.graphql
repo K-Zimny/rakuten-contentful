@@ -1,0 +1,10 @@
+fragment RichFeatureSectionFields on ComponentFeatureSection {
+  __typename
+  sys {
+    id
+  }
+  variation
+  title
+  summary
+  listItems
+}

@@ -5,6 +5,7 @@ fragment ReferenceProjectCaseStudyFields on ProjectCaseStudy {
     spaceId
   }
   title
+  summary
   image {
     ...ImageFields
   }
@@ -22,6 +23,7 @@ fragment ProjectCaseStudyFields on ProjectCaseStudy {
     spaceId
   }
   title
+  summary
   image {
     ...ImageFields
   }

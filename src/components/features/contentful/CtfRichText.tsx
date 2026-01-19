@@ -1,10 +1,10 @@
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, Document } from '@contentful/rich-text-types';
 
-import { ArticleImage, ArticleProject, ArticleQuote } from '@src/components/features/article';
-import { ComponentQuote, ComponentRichImage, ProjectCaseStudy } from '@src/lib/__generated/sdk';
+import { ArticleFeatureSection, ArticleImage, ArticleProject, ArticleQuote } from '@src/components/features/article';
+import { ComponentFeatureSection, ComponentQuote, ComponentRichImage, ProjectCaseStudy } from '@src/lib/__generated/sdk';
 
-export type EmbeddedEntryType = ComponentRichImage | ComponentQuote | ProjectCaseStudy | null;
+export type EmbeddedEntryType = ComponentRichImage | ComponentQuote | ProjectCaseStudy | ComponentFeatureSection | null;
 
 export interface ContentfulRichTextInterface {
   json: Document;
@@ -25,6 +25,8 @@ export const EmbeddedEntry = (entry: EmbeddedEntryType) => {
       return <ArticleQuote quote={entry} />;
     case 'ProjectCaseStudy':
       return <ArticleProject project={entry} />;
+    case 'ComponentFeatureSection':
+      return <ArticleFeatureSection featureSection={entry} />;
     default:
       return null;
   }

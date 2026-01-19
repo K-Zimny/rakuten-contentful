@@ -4,6 +4,7 @@ fragment RichProjectFields on ProjectCaseStudy {
     id
   }
   title
+  summary
   image {
     ...ImageFields
   }

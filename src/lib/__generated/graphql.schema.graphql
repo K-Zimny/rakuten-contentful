@@ -219,6 +219,80 @@ enum ComponentAuthorOrder {
 }
 
 """
+[See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/ComponentFeatureSection)
+"""
+type ComponentFeatureSection implements Entry & _Node {
+  _id: ID!
+  contentfulMetadata: ContentfulMetadata!
+  linkedFrom(allowedLocales: [String]): ComponentFeatureSectionLinkingCollections
+  listItems(locale: String, useFallbackLocale: Boolean): [String]
+  summary(locale: String, useFallbackLocale: Boolean): String
+  sys: Sys!
+  title(locale: String, useFallbackLocale: Boolean): String
+  variation(locale: String, useFallbackLocale: Boolean): String
+}
+
+type ComponentFeatureSectionCollection {
+  items: [ComponentFeatureSection]!
+  limit: Int!
+  skip: Int!
+  total: Int!
+}
+
+input ComponentFeatureSectionFilter {
+  AND: [ComponentFeatureSectionFilter]
+  OR: [ComponentFeatureSectionFilter]
+  contentfulMetadata: ContentfulMetadataFilter
+  listItems_contains_all: [String]
+  listItems_contains_none: [String]
+  listItems_contains_some: [String]
+  listItems_exists: Boolean
+  summary: String
+  summary_contains: String
+  summary_exists: Boolean
+  summary_in: [String]
+  summary_not: String
+  summary_not_contains: String
+  summary_not_in: [String]
+  sys: SysFilter
+  title: String
+  title_contains: String
+  title_exists: Boolean
+  title_in: [String]
+  title_not: String
+  title_not_contains: String
+  title_not_in: [String]
+  variation: String
+  variation_contains: String
+  variation_exists: Boolean
+  variation_in: [String]
+  variation_not: String
+  variation_not_contains: String
+  variation_not_in: [String]
+}
+
+type ComponentFeatureSectionLinkingCollections {
+  entryCollection(limit: Int = 100, locale: String, preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean): EntryCollection
+}
+
+enum ComponentFeatureSectionOrder {
+  summary_ASC
+  summary_DESC
+  sys_firstPublishedAt_ASC
+  sys_firstPublishedAt_DESC
+  sys_id_ASC
+  sys_id_DESC
+  sys_publishedAt_ASC
+  sys_publishedAt_DESC
+  sys_publishedVersion_ASC
+  sys_publishedVersion_DESC
+  title_ASC
+  title_DESC
+  variation_ASC
+  variation_DESC
+}
+
+"""
 [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/componentQuote)
 """
 type ComponentQuote implements Entry & _Node {
@@ -960,6 +1034,7 @@ type ProjectCaseStudy implements Entry & _Node {
   linkedFrom(allowedLocales: [String]): ProjectCaseStudyLinkingCollections
   repo(locale: String, useFallbackLocale: Boolean): String
   skillsUsed(locale: String, useFallbackLocale: Boolean): [String]
+  summary(locale: String, useFallbackLocale: Boolean): String
   sys: Sys!
   technologiesUsed(locale: String, useFallbackLocale: Boolean): [String]
   title(locale: String, useFallbackLocale: Boolean): String
@@ -1039,6 +1114,13 @@ input ProjectCaseStudyFilter {
   skillsUsed_contains_none: [String]
   skillsUsed_contains_some: [String]
   skillsUsed_exists: Boolean
+  summary: String
+  summary_contains: String
+  summary_exists: Boolean
+  summary_in: [String]
+  summary_not: String
+  summary_not_contains: String
+  summary_not_in: [String]
   sys: SysFilter
   technologiesUsed_contains_all: [String]
   technologiesUsed_contains_none: [String]
@@ -1095,6 +1177,8 @@ type Query {
   assetCollection(limit: Int = 100, locale: String, order: [AssetOrder], preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean, where: AssetFilter): AssetCollection
   componentAuthor(id: String!, locale: String, preview: Boolean, useFallbackLocale: Boolean): ComponentAuthor
   componentAuthorCollection(limit: Int = 100, locale: String, order: [ComponentAuthorOrder], preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean, where: ComponentAuthorFilter): ComponentAuthorCollection
+  componentFeatureSection(id: String!, locale: String, preview: Boolean, useFallbackLocale: Boolean): ComponentFeatureSection
+  componentFeatureSectionCollection(limit: Int = 100, locale: String, order: [ComponentFeatureSectionOrder], preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean, where: ComponentFeatureSectionFilter): ComponentFeatureSectionCollection
   componentQuote(id: String!, locale: String, preview: Boolean, useFallbackLocale: Boolean): ComponentQuote
   componentQuoteCollection(limit: Int = 100, locale: String, order: [ComponentQuoteOrder], preview: Boolean, skip: Int = 0, useFallbackLocale: Boolean, where: ComponentQuoteFilter): ComponentQuoteCollection
   componentRichImage(id: String!, locale: String, preview: Boolean, useFallbackLocale: Boolean): ComponentRichImage

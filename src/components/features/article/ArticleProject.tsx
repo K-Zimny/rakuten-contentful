@@ -20,17 +20,23 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
     const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
     return (
-        <div className="my-8 rounded-2xl border border-gray300 shadow-md bg-gray-50 p-6">
-            <p className="m-0">Case Study</p>
+        <div className="max-w-2xl mx-auto my-8 rounded-2xl border border-gray300 shadow-md bg-gray-50 p-6">
+            <p className="m-0 text-sm">Case Study</p>
             {updatedProject.title && (
                 <h2 className="mt-4 text-2xl font-bold" {...inspectorProps({ fieldId: 'title' })}>
                     {updatedProject.title}
                 </h2>
             )}
 
+            {updatedProject.summary && (
+                <p {...inspectorProps({ fieldId: 'summary' })}>
+                    {updatedProject.summary}
+                </p>
+            )}
+
             {updatedProject.image && (
                 <CtfImage
-                    nextImageProps={{ className: 'mb-2', priority: false, sizes: undefined }}
+                    nextImageProps={{ className: 'my-8', priority: false, sizes: undefined }}
                     {...updatedProject.image}
                 />
             )}

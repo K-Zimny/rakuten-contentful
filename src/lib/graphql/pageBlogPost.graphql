@@ -44,6 +44,7 @@ fragment PageBlogPostFields on PageBlogPost {
           ...RichImageFields
           ...RichQuoteFields
           ...RichProjectFields
+          ...RichFeatureSectionFields
         }
       }
     }
