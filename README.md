@@ -1,251 +1,221 @@
-# Contentful Blog Starter Template
+# Rakuten Contentful Portfolio
 
-A Blog Starter Template powered by Next.js & Contentful, pre-designed with optimized & adjustable pages, components, and data management.
+A modern, headless CMS-powered portfolio and blog website built with Next.js and Contentful. This project showcases professional work, case studies, and blog articles with a focus on user experience and content management.
 
-![The homepage of the Blog Starter Template](blog-starter-template.jpg 'The homepage of the Blog Starter Template')
+## 🚀 Features
 
-$~$
+### Core Features
+- **Contentful CMS Integration** - Headless content management with GraphQL API
+- **Blog System** - Dynamic blog posts with rich text content, images, quotes, and case studies
+- **Portfolio Showcase** - Featured projects with detailed case studies
+- **Internationalization (i18n)** - Multi-language support with locale routing
+- **Contentful Live Preview** - Real-time content preview with inspector mode
+- **Page View Tracking** - Session-based tracking of viewed articles with visual indicators
+- **Responsive Design** - Mobile-first design with Tailwind CSS
+- **SEO Optimized** - Dynamic metadata, sitemap generation, and structured data
 
-## What is Contentful?
+### User Experience Features
+- **Article View Tracking** - Visual checkmarks on viewed articles
+- **Scroll Position Restoration** - Maintains scroll position when navigating back
+- **Smooth Animations** - Hover effects and transitions
+- **Rich Content Components** - Support for images, quotes, feature sections, and project case studies
 
-[Contentful](https://www.contentful.com/) provides content infrastructure for digital teams to power websites, apps, and devices. Unlike a CMS, Contentful was built to integrate with the modern software stack. It offers a central hub for structured content, powerful management, and delivery APIs, and a customizable web app that enables developers and content creators to ship their products faster.
+## 🛠️ Tech Stack
 
-$~$
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **CMS**: Contentful
+- **GraphQL**: GraphQL Code Generator for type-safe queries
+- **Internationalization**: next-i18n-router, react-i18next
+- **Analytics**: Vercel Analytics & Speed Insights
+- **Live Preview**: @contentful/live-preview
 
-## DISCLAIMER ⚠️
+## 📋 Prerequisites
 
-The Starter Templates experience is currently only available to new users.
+- Node.js >= 18
+- Yarn (package manager)
+- Contentful account with a space configured
 
-To benefit from this experience, please follow this link to create a new
-account and select the template to install: [https://www.contentful.com/starter-templates/nextjs-blog/sign-up/?action=create_starter_template](https://www.contentful.com/starter-templates/nextjs-blog/sign-up/?action=create_starter_template&utm_source=github.com&utm_medium=referral&utm_campaign=template-blog-webapp-nextjs).
+## 🔧 Setup
 
-Alternatively, to immediately start the auto installation of this template after creating a new account,
-please follow this link:
-[https://www.contentful.com/starter-templates/nextjs-blog/sign-up/?action=create_starter_template&template_name=blog](https://www.contentful.com/starter-templates/nextjs-blog/sign-up/?action=create_starter_template&template_name=blog&utm_source=github.com&utm_medium=referral&utm_campaign=template-blog-webapp-nextjs).
-
-$~$
-
-## Begin your journey with Contentful and the Blog Starter Template
-
-Follow this [guide](https://github.com/contentful/template-blog-webapp-nextjs/blob/main/docs/tutorials/contentful-and-the-starter-template.md/?utm_source=github.com-guide&utm_medium=referral&utm_campaign=template-blog-webapp-nextjs) to understand the relationship between
-Contentful and the Starter Template source code through guided steps:
-
-- Entry editing, and updates preview in the Starter Template application (online/locally)
-- Content type editing in the Contentful web app, as well as in the Starter Template's code
-
-$~$
-
-## Features
-
-- Composable content through powerful & flexible content modeling.
-- Localization ready.
-- SEO ready.
-- Incremental Static Regeneration with Next.js[^1].
-- Generation of GraphQL[^2] typed code (schema, and types), in sync with the content types through graphql-codegen[^3].
-- Enhanced Developer Experience with TypeScript[^4].
-
-$~$
-
-## Getting started
-
-To get started, read the following guidelines.
-
-- [Environment variables](./README.md#environment-variables)
-- [Dependencies](./README.md#dependencies)
-- [Development](./README.md#development)
-- [Contentful API & GraphQL](./README.md#contentful-api--graphql)
-- [Deployment](./README.md#deployment)
-
-$~$
-
-### Environment variables
-
-In order to authenticate the requests to the Contentful APIs, the following values are necessary:
-
-- Your space ID: [https://www.contentful.com/help/find-space-id/](https://www.contentful.com/help/find-space-id/)
-- Contentful Delivery API token: [https://www.contentful.com/developers/docs/references/content-delivery-api/](https://www.contentful.com/developers/docs/references/content-delivery-api/)
-- Contentful Preview API token: [https://www.contentful.com/developers/docs/references/content-preview-api/](https://www.contentful.com/developers/docs/references/content-preview-api/)
-
-Rename the `.env.example` file to `.env` and add the necessary values.
-
-$~$
-
-### Dependencies
-
-To install the necessary dependencies, run:
+### 1. Clone the repository
 
 ```bash
-yarn
+git clone https://github.com/K-Zimny/rakuten-contentful.git
+cd rakuten-contentful
 ```
 
-### Run the Starter Template in development mode
+### 2. Install dependencies
+
+```bash
+yarn install
+```
+
+### 3. Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+
+```env
+# Contentful Configuration
+CONTENTFUL_SPACE_ID=your_space_id
+CONTENTFUL_ACCESS_TOKEN=your_delivery_api_token
+CONTENTFUL_PREVIEW_ACCESS_TOKEN=your_preview_api_token
+CONTENTFUL_SPACE_ENVIRONMENT=master
+CONTENTFUL_PREVIEW_SECRET=your_preview_secret
+
+# Application
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+```
+
+**Where to find these values:**
+- **Space ID**: Contentful web app → Settings → General settings
+- **Delivery API Token**: Contentful web app → Settings → API keys → Content delivery / preview tokens
+- **Preview Secret**: Generate a random secret string for preview authentication
+
+### 4. Generate GraphQL Types
+
+```bash
+yarn graphql-codegen:generate
+```
+
+This generates TypeScript types from your Contentful GraphQL schema.
+
+### 5. Run Development Server
 
 ```bash
 yarn dev
 ```
 
-The Starter Template should be up and running on `http://localhost:3000`.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-All necessary dependencies are installed under `node_modules` and any necessary tools can be accessed via npm scripts.
+## 📁 Project Structure
 
-$~$
+```
+rakuten-contentful/
+├── src/
+│   ├── app/                    # Next.js app router pages
+│   │   ├── [locale]/          # Localized routes
+│   │   │   ├── page.tsx       # Landing page
+│   │   │   └── [slug]/        # Blog post pages
+│   │   └── api/               # API routes
+│   │       └── enable-draft/ # Draft mode endpoint
+│   ├── components/
+│   │   ├── features/          # Feature components
+│   │   │   ├── article/      # Article-related components
+│   │   │   └── contentful/   # Contentful integration components
+│   │   ├── shared/           # Shared UI components
+│   │   └── templates/        # Layout components (Header, Footer)
+│   ├── lib/
+│   │   ├── __generated/       # Generated GraphQL types
+│   │   ├── graphql/          # GraphQL query files
+│   │   └── client.ts         # GraphQL client setup
+│   ├── i18n/                 # Internationalization config
+│   └── utils/                # Utility functions
+│       └── pageViewed.js     # Page view tracking
+├── public/
+│   └── locales/             # Translation files
+└── config/                  # Next.js configuration
+```
 
-## Development
+## 🎨 Key Components
 
-### Husky & git hooks
+### Article Components
+- **ArticleHero** - Featured article hero section with image and metadata
+- **ArticleTile** - Article card with view tracking indicator
+- **ArticleTileGrid** - Grid layout for article listings
+- **ArticleContent** - Rich text content renderer
+- **ArticleProject** - Case study/project showcase
+- **ArticleQuote** - Quote block component
+- **ArticleFeatureSection** - Feature section with customizable layouts
+- **BackToHome** - Navigation component with scroll restoration
 
-This repository makes use of [Husky](https://github.com/typicode/husky) to enforce commit hooks.
+### Contentful Integration
+- **CtfRichText** - Renders Contentful rich text fields
+- **CtfImage** - Optimized image component
+- **CtfPreviewProvider** - Live preview provider wrapper
 
-The config for both the `pre-commit` and `pre-push` hooks can be found in the `.husky` folder, located in the root of the project.
+## 🔄 Contentful Live Preview
 
----
+The project includes Contentful Live Preview integration for real-time content editing:
 
-#### Pre-commit
+1. **Configuration**: Live preview is configured in `src/app/[locale]/layout.tsx`
+2. **Inspector Mode**: Click on content elements to jump to fields in Contentful
+3. **Live Updates**: Content updates automatically as you type in Contentful
+4. **Setup**: Configure preview URLs in Contentful Settings → Content Preview
 
-Before allowing a commit, we require a successful result from the TypeScript compiler (`tsc`) and our `lint-staged` script will be run.
+## 📊 Page View Tracking
 
-This ensures all ESLint and Prettier rules are enforced on the files that are staged to be committed.
+The application tracks viewed articles using session storage:
 
-The `tsc` command is run separately from the `lint-staged` step because we require the Typescript compiler to sample _all_ files.
+- **Storage**: Uses `sessionStorage` to track viewed article titles
+- **Visual Indicator**: Green checkmark badge appears on viewed articles
+- **Persistence**: Tracks views across page navigation within the session
+- **Implementation**: `src/utils/pageViewed.js` handles storage logic
 
-This is important to ensure that no deviating types were introduced by the [codegen](./README.md#graphql--code-generation) for example.
+## 🌐 Internationalization
 
----
+The project supports multiple locales:
 
-#### Pre-push
+- **Configuration**: `src/i18n/config.ts`
+- **Translation Files**: `public/locales/{locale}/common.json`
+- **Routing**: Automatic locale detection and routing via `next-i18n-router`
 
-The same two tasks are run for pre-push and for pre-commit.
+## 🚢 Deployment
 
----
+### Vercel (Recommended)
 
-#### Overriding the Husky git hooks
+1. Push your code to GitHub
+2. Import the project in Vercel
+3. Add environment variables in Vercel dashboard
+4. Deploy
 
-In case of wanting to bypass the `pre-commit` or `pre-push` hooks, pass a `--noVerify` flag to your Git commands.
+### Environment Variables for Production
 
-⚠️ Make sure you only use this if you know why you're using it. ⚠️
+Ensure all environment variables are set in your hosting platform:
+- `CONTENTFUL_SPACE_ID`
+- `CONTENTFUL_ACCESS_TOKEN`
+- `CONTENTFUL_PREVIEW_ACCESS_TOKEN`
+- `CONTENTFUL_PREVIEW_SECRET`
+- `NEXT_PUBLIC_BASE_URL` (your production URL)
 
-$~$
+## 📝 Available Scripts
 
-### Contentful API & GraphQL
+- `yarn dev` - Start development server
+- `yarn build` - Build for production
+- `yarn start` - Start production server
+- `yarn lint` - Run ESLint
+- `yarn type-check` - Run TypeScript type checking
+- `yarn graphql-codegen:generate` - Generate GraphQL types
+- `yarn graphql-codegen:watch` - Watch mode for GraphQL codegen
 
-This project makes use of Contentful's [GraphQL API](https://www.contentful.com/developers/docs/references/graphql/).
+## 🎯 Content Models
 
-API calls made to the Contentful GraphQL endpoint are made through `graphql-request`.
+The project uses the following Contentful content types:
 
-The types are generated from the `.graphql` files located in the `/lib/graphql/` directory:
+- **PageBlogPost** - Blog articles
+- **PageLanding** - Landing page content
+- **ProjectCaseStudy** - Project case studies
+- **ComponentQuote** - Quote blocks
+- **ComponentRichImage** - Rich image blocks
+- **ComponentFeatureSection** - Feature sections
+- **ComponentAuthor** - Author information
+- **ComponentSeo** - SEO metadata
 
-1. `lib/graphql/[fileName].graphql` is detected by the [codegen](./README.md#graphql--code-generation)
-2. `lib/__generated/sdk.ts` is generated
-3. Within the generated file, their types and a new `getSdk` function are generated
-4. The `getSdk` function can now be imported and used within the `getStaticProps` in the pages files
+## 🔐 Security
 
-$~$
+- Preview secret is required for draft mode access
+- Environment variables are not exposed to the client
+- Contentful API tokens should be kept secure
 
-### GraphQL & code generation
+## 📄 License
 
-We use `graphql-codegen` to generate a type-safe API client, utilizing [GraphQLClient](https://the-guild.dev/graphql/codegen/plugins/typescript/typescript-graphql-request) as the "client".
+MIT
 
----
+## 👤 Author
 
-#### Commands
-
-In order to (re-)generate the GraphQL schema, types and sdk, please use either of the following commands:
-
-- `yarn graphql-codegen:generate` generates a schema, types and code to fetch data from the Contentful APIs
-- `yarn graphql-codegen:watch` similar to the `generate` command, but it runs as a watch task which will rerun the steps when changes are made in the `.graphql` files
-
-The first steps of the codegen generate files that contain the GraphQL schema and matching TypeScript types. All these files are located in the `src/lib/graphql` folder.
-They're generated to the `src/lib/__generated` folder and ought to be committed once altered/added to the repository.
-
-The TS types for these files are generated in the same location, in a `__generated` folder and like the other files ought to be committed.
-
----
-
-#### Configuration
-
-The configuration for the codegen can be found in `codegen.ts`, located in the root of the project.
-
-$~$
-
----
-
-$~$
-
-## Deployment
-
-The Starter Template can be deployed to your hosting provider of choice.
-
-We offer integrations with Vercel and Netlify to speed up the process by clicking one of the deploy buttons below. The GitHub repository and
-the necessary environment variables keys are pre-configured in the hosting provider space.
-
-| Vercel                                                                                                                                                                                                                                                                                                                                                                                                               | Netlify                                                                                                                                                                                                                                                                          |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcontentful%2Ftemplate-blog-webapp-nextjs&env=CONTENTFUL_SPACE_ID,CONTENTFUL_ACCESS_TOKEN,CONTENTFUL_PREVIEW_ACCESS_TOKEN&envDescription=API%20Keys%20needed%20for%20the%20application&envLink=https%3A%2F%2Fgithub.com%2Fcontentful%2Ftemplate-blog-webapp-nextjs%23environment-variables) | [![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https%3A%2F%2Fgithub.com%2Fcontentful%2Ftemplate-blog-webapp-nextjs#CONTENTFUL_SPACE_ID=&CONTENTFUL_ACCESS_TOKEN=&CONTENTFUL_PREVIEW_ACCESS_TOKEN=) |
-| [Environment variables docs](https://vercel.com/docs/concepts/projects/environment-variables)                                                                                                                                                                                                                                                                                                                        | [Environment variables docs](https://docs.netlify.com/environment-variables/overview/)                                                                                                                                                                                           |
-
-Make sure to add the necessary [environment variables values](./README.md#environment-variables) to the hosting provider
-environment variables.
-
----
-
-## Content preview
-
-Once you have the Starter Template deployed on your hosting provider, you can update the Content preview URL in your space settings.
-
-You can follow our guide to learn how to do
-so: [https://www.contentful.com/help/setup-content-preview](https://www.contentful.com/help/setup-content-preview/?utm_source=github.com-preview-guide&utm_medium=referral&utm_campaign=template-marketing-webapp-nextjs).
-
-For the live preview the basic field tagging for the inspector mode and live updates are already implemented.
-For custom components, you can find the instructions at our [guide](https://www.contentful.com/developers/docs/tutorials/general/live-preview/).
-
-### Adjustments in code
-
-1. Set a unique value for `process.env.CONTENTFUL_PREVIEW_SECRET` in your environment variables. This value should be kept secret and only known to the API route and the CMS.
-2. Configure the entry preview URLs in Contentful to match the draft API route's URL structure. This can be done in the Contentful web interface under "Settings" for each content type. For more information see: https://www.contentful.com/help/setup-content-preview/#preview-content-in-your-online-environment
-3. The draft mode API route is already written in the app and can be found in `src/app/api/enable-draft/route.ts`. This route checks for a valid secret and slug before redirecting to the corresponding page\*.
-
-_\*The `slug` field is optional; When not passed we redirect the page to the root of the domain._
-
-### Adjustments in Contentful
-
-1. Next, you will need to configure your Contentful space to use the correct preview URLs. To do this, go to the "Settings" section of your space, and click on the "Content Preview" tab. From here, you can configure the preview URLs for each of your content models.
-2. Edit all content models that need a preview url. We usually expect that to only be the models prefixed with `📄 page -`.
-3. Add a new URL with the following format: `https://<your-site>/api/enable-draft?path=%2F{locale}%2F{entry.fields.slug}&x-contentful-preview-secret=<token>`. Make sure to replace `<your-site>` with the URL of your Next.js site, and `<token>` with the value of `process.env.CONTENTFUL_PREVIEW_SECRET`.
-4. Now, when you view an unpublished entry in Contentful, you should see a "Preview" button that will take you to the preview URL for that entry. Clicking this button should show you a preview of the entry on your Next.js site, using the draft API route that we set up earlier.
-
-
-$~$
+Kenneth Zimny
 
 ---
 
-$~$
-
-## Support
-
-If you have a problem with this Starter Template, post a message in our [Contentful Community Slack](https://www.contentful.com/slack/).
-
-Can't find your answer there? You can file a feedback issue through [this template](https://github.com/contentful/template-blog-webapp-nextjs/tree/main/.github/ISSUE_TEMPLATE/feedback.md).
-
-If you have other problems with Contentful not related to the Starter Template, you can contact the [Customer Support](https://support.contentful.com/).
-
-$~$
-
-## Contributing
-
-See [CONTRIBUTING.md](./CONTRIBUTING.md).
-
-$~$
-
-## License
-
-MIT License, see [LICENSE](./LICENSE).
-
-$~$
-
-<!-- FOOTNOTES -->
-
-[^1]: [Next.js docs](https://nextjs.org/docs/basic-features/data-fetching/get-static-props)
-[^2]: [GraphQL docs](https://graphql.org/learn/)
-[^3]: [graphql-codegen](https://www.the-guild.dev/graphql/codegen)
-[^4]: [TypeScript](https://www.typescriptlang.org/)
-[^note]: [React docs](https://reactjs.org/docs/getting-started.html)
+Built with ❤️ using Next.js and Contentful
