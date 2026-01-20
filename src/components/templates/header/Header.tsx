@@ -24,7 +24,7 @@ export const Header = () => {
               height={40}>
             </Image>
           </Link>
-          <LanguageSelector />
+          {/* <LanguageSelector /> */}
         </Container>
       </nav>
     </header>
