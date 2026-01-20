@@ -4,7 +4,7 @@
     "featured": "featured"
   },
   "landingPage": {
-    "latestArticles": "Learn More"
+    "latestArticles": "Additional Information"
   },
   "common": {
     "regionalSettings": "Regional Settings",
@@ -14,7 +14,7 @@
   },
   "footer": {
     "aboutUs": "Kenneth Zimny",
-    "description": "Code, Colloboration, Coffee. Together we find a way.",
+    "description": "Code, Collaboration, Coffee. Together we find a way.",
     "powerBy": "Powered by"
   },
   "notFound": {

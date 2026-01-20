@@ -8,3 +8,4 @@ export * from './ArticleProject';
 export * from './ArticleQuote';
 export * from './ArticleTile';
 export * from './ArticleTileGrid';
+export * from './BackToHome';

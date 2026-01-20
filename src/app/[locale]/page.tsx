@@ -88,7 +88,6 @@ export default async function Page({ params: { locale } }: LandingPageProps) {
         'Web Management',
         'Design to Code',
         'Design Systems & Component Libraries',
-        'Additional Information',
       ]; // Your custom order
       const indexA = customOrder.indexOf(a.title || '');
       const indexB = customOrder.indexOf(b.title || '');
@@ -118,7 +117,10 @@ export default async function Page({ params: { locale } }: LandingPageProps) {
 
       <Container className="my-8 md:mb-10 lg:mb-16">
         <h2 className="mb-4 text-center md:mb-6">{t('landingPage.latestArticles')}</h2>
-        <ArticleTileGrid className="md:grid-cols-2 lg:grid-cols-3" articles={posts} />
+        <ArticleTileGrid
+          className="md:grid-cols-2 lg:grid-cols-3"
+          articles={posts}
+        />
       </Container>
     </TranslationsProvider>
   );

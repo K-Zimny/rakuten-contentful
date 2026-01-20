@@ -52,6 +52,7 @@
     "**/*.ts",
     "**/*.tsx",
     "@types/**/*.d.ts",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/utils/localstorage.js"
   ]
 }

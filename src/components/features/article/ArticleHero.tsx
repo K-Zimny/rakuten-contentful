@@ -12,6 +12,7 @@ import { ArticleLabel } from '@src/components/features/article/ArticleLabel';
 import { CtfImage } from '@src/components/features/contentful';
 import { FormatDate } from '@src/components/shared/format-date';
 import { PageBlogPostFieldsFragment } from '@src/lib/__generated/sdk';
+import pageViewed from "@src/utils/pageViewed"
 
 interface ArticleHeroProps {
   article: PageBlogPostFieldsFragment;
@@ -28,6 +29,8 @@ export const ArticleHero = ({
   const { t } = useTranslation();
   const inspectorProps = useContentfulInspectorMode({ entryId: article.sys.id });
   const { title, shortDescription, publishedDate } = useContentfulLiveUpdates(article);
+
+  pageViewed("set", "article", title)
 
   return (
     <div

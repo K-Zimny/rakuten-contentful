@@ -39,10 +39,12 @@
 /* Animations */
 
 .hover-effect {
-  transition: box-shadow 0.3s, transform 0.3s;
+  transition: box-shadow 0.3s, transform 0.3s, opacity 0.3s;
 }
 
 .hover-effect:hover {
   box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
   transform: scale(0.99);
+  opacity: 1;
+  filter: none
 }
