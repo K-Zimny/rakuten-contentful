@@ -6,5 +6,6 @@ fragment RichFeatureSectionFields on ComponentFeatureSection {
   variation
   title
   summary
+  example
   listItems
 }

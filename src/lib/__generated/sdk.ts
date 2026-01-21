@@ -399,12 +399,20 @@ export type ComponentFeatureSection = Entry & _Node & {
   __typename?: 'ComponentFeatureSection';
   _id: Scalars['ID']['output'];
   contentfulMetadata: ContentfulMetadata;
+  example?: Maybe<Scalars['String']['output']>;
   linkedFrom?: Maybe<ComponentFeatureSectionLinkingCollections>;
   listItems?: Maybe<Array<Maybe<Scalars['String']['output']>>>;
   summary?: Maybe<Scalars['String']['output']>;
   sys: Sys;
   title?: Maybe<Scalars['String']['output']>;
   variation?: Maybe<Scalars['String']['output']>;
+};
+
+
+/** [See type definition](https://app.contentful.com/spaces/rdr91vdz2nv7/content_types/ComponentFeatureSection) */
+export type ComponentFeatureSectionExampleArgs = {
+  locale?: InputMaybe<Scalars['String']['input']>;
+  useFallbackLocale?: InputMaybe<Scalars['Boolean']['input']>;
 };
 
 
@@ -453,6 +461,13 @@ export type ComponentFeatureSectionFilter = {
   AND?: InputMaybe<Array<InputMaybe<ComponentFeatureSectionFilter>>>;
   OR?: InputMaybe<Array<InputMaybe<ComponentFeatureSectionFilter>>>;
   contentfulMetadata?: InputMaybe<ContentfulMetadataFilter>;
+  example?: InputMaybe<Scalars['String']['input']>;
+  example_contains?: InputMaybe<Scalars['String']['input']>;
+  example_exists?: InputMaybe<Scalars['Boolean']['input']>;
+  example_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
+  example_not?: InputMaybe<Scalars['String']['input']>;
+  example_not_contains?: InputMaybe<Scalars['String']['input']>;
+  example_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   listItems_contains_all?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   listItems_contains_none?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
   listItems_contains_some?: InputMaybe<Array<InputMaybe<Scalars['String']['input']>>>;
@@ -496,6 +511,8 @@ export type ComponentFeatureSectionLinkingCollectionsEntryCollectionArgs = {
 };
 
 export enum ComponentFeatureSectionOrder {
+  ExampleAsc = 'example_ASC',
+  ExampleDesc = 'example_DESC',
   SummaryAsc = 'summary_ASC',
   SummaryDesc = 'summary_DESC',
   SysFirstPublishedAtAsc = 'sys_firstPublishedAt_ASC',
@@ -2502,7 +2519,7 @@ export type PageProjectCaseStudyCollectionQuery = { __typename?: 'Query', projec
       & ProjectCaseStudyFieldsFragment
     ) | null> } | null };
 
-export type RichFeatureSectionFieldsFragment = { __typename: 'ComponentFeatureSection', variation?: string | null, title?: string | null, summary?: string | null, listItems?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string } };
+export type RichFeatureSectionFieldsFragment = { __typename: 'ComponentFeatureSection', variation?: string | null, title?: string | null, summary?: string | null, example?: string | null, listItems?: Array<string | null> | null, sys: { __typename?: 'Sys', id: string } };
 
 export type RichImageFieldsFragment = { __typename: 'ComponentRichImage', internalName?: string | null, caption?: string | null, fullWidth?: boolean | null, sys: { __typename?: 'Sys', id: string }, image?: (
     { __typename?: 'Asset' }
@@ -2628,6 +2645,7 @@ export const RichFeatureSectionFieldsFragmentDoc = gql`
   variation
   title
   summary
+  example
   listItems
 }
     `;

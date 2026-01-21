@@ -224,6 +224,7 @@ enum ComponentAuthorOrder {
 type ComponentFeatureSection implements Entry & _Node {
   _id: ID!
   contentfulMetadata: ContentfulMetadata!
+  example(locale: String, useFallbackLocale: Boolean): String
   linkedFrom(allowedLocales: [String]): ComponentFeatureSectionLinkingCollections
   listItems(locale: String, useFallbackLocale: Boolean): [String]
   summary(locale: String, useFallbackLocale: Boolean): String
@@ -243,6 +244,13 @@ input ComponentFeatureSectionFilter {
   AND: [ComponentFeatureSectionFilter]
   OR: [ComponentFeatureSectionFilter]
   contentfulMetadata: ContentfulMetadataFilter
+  example: String
+  example_contains: String
+  example_exists: Boolean
+  example_in: [String]
+  example_not: String
+  example_not_contains: String
+  example_not_in: [String]
   listItems_contains_all: [String]
   listItems_contains_none: [String]
   listItems_contains_some: [String]
@@ -276,6 +284,8 @@ type ComponentFeatureSectionLinkingCollections {
 }
 
 enum ComponentFeatureSectionOrder {
+  example_ASC
+  example_DESC
   summary_ASC
   summary_DESC
   sys_firstPublishedAt_ASC
