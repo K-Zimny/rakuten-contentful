@@ -105,7 +105,7 @@ export default async function Page({ params: { locale } }: LandingPageProps) {
     <TranslationsProvider locale={locale} resources={resources}>
       <Container>
         <Link href={`/${page.featuredBlogPost.slug}`}>
-          <ArticleHero article={page.featuredBlogPost} />
+          <ArticleHero article={page.featuredBlogPost} disableViewTracking={true} />
         </Link>
       </Container>
 
