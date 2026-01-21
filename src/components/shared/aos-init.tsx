@@ -12,6 +12,8 @@ export function AOSInit() {
       easing: 'ease-in-out',
       once: true,
       mirror: false,
+      debounceDelay: 50,
+      throttleDelay: 99,
     });
   }, []);
 
