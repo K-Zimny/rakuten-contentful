@@ -38,7 +38,8 @@ export const ArticleHero = ({
       className={twMerge(
         `mx-auto flex flex-col overflow-hidden rounded-2xl border border-gray300 shadow-md hover-effect`,
         isReversedLayout ? 'lg:flex-row-reverse' : 'lg:flex-row',
-      )}>
+      )}
+    >
       <div className="flex-1 basis-1/2" {...inspectorProps({ fieldId: 'featuredImage' })}>
         {article.featuredImage && (
           <CtfImage

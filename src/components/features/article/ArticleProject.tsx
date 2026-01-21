@@ -20,7 +20,7 @@ export const ArticleProject = ({ project }: ArticleProjectProps) => {
     const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
     return (
-        <div className="max-w-2xl mx-auto my-8 rounded-2xl border border-gray300 shadow-md bg-gray-50 p-6 hover-effect">
+        <div data-aos="fade-up" className="max-w-2xl mx-auto my-8 rounded-2xl border border-gray300 shadow-md bg-gray-50 p-6 hover-effect">
             <p className="m-0 text-sm">Case Study</p>
             {updatedProject.title && (
                 <h2 className="mt-4 text-2xl text-gray700" {...inspectorProps({ fieldId: 'title' })}>

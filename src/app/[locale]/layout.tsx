@@ -7,6 +7,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { ContentfulPreviewProvider } from '@src/components/features/contentful';
 import TranslationsProvider from '@src/components/shared/i18n/TranslationProvider';
+import { AOSInit } from '@src/components/shared/aos-init';
 import { Footer } from '@src/components/templates/footer';
 import { Header } from '@src/components/templates/header';
 import initTranslations from '@src/i18n';
@@ -46,6 +47,7 @@ export default async function PageLayout({ children, params }: LayoutProps) {
   return (
     <html lang={locale} dir={dir(locale)}>
       <body>
+        <AOSInit />
         <TranslationsProvider locale={locale} resources={resources}>
           <ContentfulPreviewProvider
             locale={locale}
