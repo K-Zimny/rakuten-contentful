@@ -5,10 +5,16 @@
 @layer base {
   html {
     font-size: 16px;
+    overflow-x: hidden;
   }
 
   body {
+    overflow-x: hidden;
     @apply bg-gray100 text-sm text-gray800 md:text-sm;
+  }
+
+  main {
+    overflow-x: hidden;
   }
 
   .h1,

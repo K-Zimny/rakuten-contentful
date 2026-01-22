@@ -36,17 +36,17 @@ export const ArticleHero = ({
 
   useEffect(() => {
     if (!title) return;
-    
+
     // CRITICAL: Check if already viewed FIRST, before doing anything else
     // This must happen synchronously before marking as viewed
     const viewed = pageViewed("get", "article");
     const wasViewed = Array.isArray(viewed) && viewed.includes(title);
-    
+
     // Set state IMMEDIATELY based on the check result
     // First visit: wasViewed = false, so isViewed = false (no checkmark)
     // Second visit: wasViewed = true, so isViewed = true (shows checkmark)
     setIsViewed(wasViewed);
-    
+
     // Only AFTER setting state, mark as viewed for future visits
     // This happens after React has the state value, so it won't affect current render
     if (!disableViewTracking) {
